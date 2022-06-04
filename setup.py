@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="lgtm-db",
-    version="1.0.0",
+    version="1.0.1",
     url="https://github.com/thatlittleboy/lgtm-db",
     install_requires=[
         "pyyaml",
