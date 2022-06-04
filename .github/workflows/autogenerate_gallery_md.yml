@@ -1,0 +1,28 @@
+name: Validate gallery md file
+
+on:
+  - push
+
+jobs:
+  validate:
+    name: Checks if the gallery md file is up-to-date
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Setup python dependencies
+        run: pip install pyyaml
+
+      - name: Run the comparison of gallery files
+        run: |
+          mv lgtm-db/data/gallery.md lgtm-db/data/gallery-old.md
+          python -m scripts.generate_gallery
+          diff  lgtm-db/data/gallery.md lgtm-db/data/gallery-old.md
