@@ -46,6 +46,4 @@
 
 **Name**: joey-friends-nice<br><img alt="joey-friends-nice" src="https://media.giphy.com/media/ftYpwfV6ZcerEa8poV/giphy.gif" width="420">
 
-**Name**: dog-dressed-as-human-lgtm<br><img alt="dog-dressed-as-human-lgtm" src="https://media.giphy.com/media/gLuP6eGC3yamBoGMJT/giphy.gif" width="420">
-
 **Name**: gordon-ramsey-brilliant<br><img alt="gordon-ramsey-brilliant" src="https://media.giphy.com/media/3oFzlX9khlRIev1E2Y/giphy.gif" width="420">
