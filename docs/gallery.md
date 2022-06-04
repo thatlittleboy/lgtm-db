@@ -38,8 +38,6 @@
 
 **Name**: borat-great-success<br><img alt="borat-great-success" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" width="420">
 
-**Name**: the-office-approval-stamp<br><img alt="the-office-approval-stamp" src="https://media.giphy.com/media/YKdm91XONLTaw/giphy.gif" width="420">
-
 **Name**: walkby-cat-high-five<br><img alt="walkby-cat-high-five" src="https://media.giphy.com/media/6a7XrfeUxlEB2/giphy.gif" width="420">
 
 **Name**: dog-in-front-of-laptop-lgtm<br><img alt="dog-in-front-of-laptop-lgtm" src="https://media.giphy.com/media/eM0U5NQtVHu30VM5sS/giphy.gif" width="420">
@@ -49,3 +47,7 @@
 **Name**: dog-dressed-as-human-lgtm<br><img alt="dog-dressed-as-human-lgtm" src="https://media.giphy.com/media/gLuP6eGC3yamBoGMJT/giphy.gif" width="420">
 
 **Name**: gordon-ramsey-brilliant<br><img alt="gordon-ramsey-brilliant" src="https://media.giphy.com/media/3oFzlX9khlRIev1E2Y/giphy.gif" width="420">
+
+**Name**: pedro-pascal-fist-salute<br><img alt="pedro-pascal-fist-salute" src="https://media.giphy.com/media/n58MqIchLqAalRQAQB/giphy.gif" width="420">
+
+**Name**: choi-aera-fightformyway-thumbsup<br><img alt="choi-aera-fightformyway-thumbsup" src="https://media.giphy.com/media/OvCf6ZgDdEUAm0P8r6/giphy.gif" width="420">
