@@ -20,6 +20,10 @@ $ lgtm-db
 
 ## Todo
 Things that I may or may not get around to doing...
+* autogeneration of img/gif gallery markdown file so I can see easily view all the gifs/imgs i have
+  * via github actions
+  * display name, and the img
+  * support lazy loading, if possible
 * supporting cli args
   * default with no args should print help message
   * selecting random static imgs or gifs
