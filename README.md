@@ -26,6 +26,11 @@ Things that I may or may not get around to doing...
   * selecting random based on name
 * support alternative outputs (not just HTML tags)
   * markdown `![alt-text](url)` syntax
+* automating the release process with some tool (Makefile? doit?)
+
+## Release
+1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
+1. And tag the ref, `git tag v1.0.1`, for example.
 
 ## Inspiration
 Inspiration from the following repositories:
