@@ -38,7 +38,7 @@
 
 **Name**: borat-great-success<br><img alt="borat-great-success" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" width="420">
 
-**Name**: the-office-approval-stamp<br><img alt="the-office-approval-stamp" src="https://media.giphy.com/media/YKdm91XONLTaw/giphy.gif" width="420">
+**Name**: the-office-approval-stamp<br><img alt="the-office-approval-stamp" src="https://media.giphy.com/media/YKdm91XONLTaw/giphy-downsized.gif" width="420">
 
 **Name**: walkby-cat-high-five<br><img alt="walkby-cat-high-five" src="https://media.giphy.com/media/6a7XrfeUxlEB2/giphy.gif" width="420">
 
