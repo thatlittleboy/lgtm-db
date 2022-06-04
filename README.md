@@ -10,12 +10,12 @@ A repository containing LGTM-related gifs and images.
 
 ---
 
-View all the available images in the [gallery](docs/gallery.md).
+View all the available images and gifs in the [gallery page](docs/gallery.md).
 
 ---
 
 ## Installation
-This is just for personal use, so it is not published on PyPI.
+This project is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/):
 ```shell
@@ -23,16 +23,19 @@ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
 ## Usage
-API very much subject to change.
+This project exposes a simple CLI API that prints out the HTML img tag of a randomly selected gif/image in the db.
 
 ```shell
 $ lgtm-db
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+
+**NOTE**: API is very much subject to change.
 ```
 
 ## Todo
 Things that I may or may not get around to doing...
-* support lazy loading of gallery markdown file
+* support lazy loading of [gallery](docs/gallery.md) markdown file
+  * loading can become quite bloated if the gallery gets big
 * supporting cli args
   * default with no args should print help message
   * selecting random static imgs or gifs
