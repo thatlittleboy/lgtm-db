@@ -1,7 +1,9 @@
 A repository containing LGTM-related gifs and images.
 
+<img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+
 ## Installation
-This is just for personal use, so it not published on PyPI.
+This is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/):
 ```shell
