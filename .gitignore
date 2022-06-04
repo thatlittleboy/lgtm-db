@@ -1,0 +1,68 @@
+# A personal .gitignore file to apply globally (across projects)
+# To prevent pollution of project-based gitignores
+# See .gitconfig for the config line that sets this file as the global gitignore
+
+### General ###
+###############
+
+# Windows OS
+Thumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Mac OS
+.DS_STORE
+.AppleDouble
+.fseventsd
+.Spotlight-V100
+.Trashes
+
+# Secrets
+.env
+
+# VS Code config
+.vscode/*
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+
+
+### Python ###
+##############
+
+# Compiled
+__pycache__/
+*.pyc
+
+# Distribution / Packaging
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+wheels/
+
+# Unit test / Coverage reports
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Sphinx docs
+docs/_build/
+
+# mkdocs documentation
+/site
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Environments
+.venv
+venv/
+venvs/
