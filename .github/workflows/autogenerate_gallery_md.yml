@@ -22,6 +22,6 @@ jobs:
 
       - name: Run the comparison of gallery files
         run: |
-          mv lgtm-db/data/gallery.md lgtm-db/data/gallery-old.md
+          mv docs/gallery.md docs/gallery-old.md
           python -m scripts.generate_gallery
-          diff  lgtm-db/data/gallery.md lgtm-db/data/gallery-old.md
+          diff docs/gallery.md docs/gallery-old.md
