@@ -1,12 +1,17 @@
 import random
-from pathlib import Path
+import sys
 
 import yaml
 
+if sys.version_info >= (3, 9):
+    from importlib.resources import files
+else:
+    from importlib_resources import files
+
 
 def main() -> int:
-    p = Path("lgtm.yaml")
-    with p.open(mode="r") as f:
+    resource_path = files("lgtm_db") / "data" / "lgtm.yaml"
+    with resource_path.open(mode="r") as f:
         ps = yaml.safe_load(f)
 
     all_lgtm = ps["images"] + ps["gifs"]
