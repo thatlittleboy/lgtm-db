@@ -17,7 +17,7 @@ View all the available images and gifs in the [gallery page](docs/gallery.md).
 ## Installation
 This project is just for personal use, so it is not published on PyPI.
 
-Using [pipx](https://pypa.github.io/pipx/):
+Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
 ```shell
 pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
@@ -28,9 +28,9 @@ This project exposes a simple CLI API that prints out the HTML img tag of a rand
 ```shell
 $ lgtm-db
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+```
 
 **NOTE**: API is very much subject to change.
-```
 
 ## Todo
 Things that I may or may not get around to doing...
