@@ -10,7 +10,7 @@ else:
 
 
 def main() -> int:
-    resource_path = files("lgtm_db") / "db" / "lgtm.yaml"
+    resource_path = files("lgtm_db") / "data" / "db.yaml"
     with resource_path.open(mode="r") as f:
         ps = yaml.safe_load(f)
 
