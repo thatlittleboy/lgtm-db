@@ -1,6 +1,18 @@
+<h2 align="center">LGTM db</h2>
+
+<p align="center">
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
+
 A repository containing LGTM-related gifs and images.
 
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+
+---
+
+View all the available images in the [gallery](docs/gallery.md).
+
+---
 
 ## Installation
 This is just for personal use, so it is not published on PyPI.
@@ -20,10 +32,7 @@ $ lgtm-db
 
 ## Todo
 Things that I may or may not get around to doing...
-* autogeneration of img/gif gallery markdown file so I can see easily view all the gifs/imgs i have
-  * via github actions
-  * display name, and the img
-  * support lazy loading, if possible
+* support lazy loading of gallery markdown file
 * supporting cli args
   * default with no args should print help message
   * selecting random static imgs or gifs
@@ -38,4 +47,4 @@ Things that I may or may not get around to doing...
 
 ## Inspiration
 Inspiration from the following repositories:
-* https://github.com/seantomburke/shipit.gifs.git
+* https://github.com/seantomburke/shipit.gifs
