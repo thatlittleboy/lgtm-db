@@ -38,7 +38,7 @@
 
 **Name**: borat-great-success<br><img alt="borat-great-success" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" width="420">
 
-**Name**: walkby-cat-high-five-shipit<br><img alt="walkby-cat-high-five-shipit" src="https://i.fluffy.cc/b6wlBbdVkX83CHpLWxHZw74WJxHVQc9S.gif" width="420">
+**Name**: walkby-cat-high-five-shipit<br><img alt="walkby-cat-high-five-shipit" src="https://i.fluffy.cc/MKjDMmwXxZlqRTwnn070gVqZ8Rwh6d3p.gif" width="420">
 
 **Name**: dog-in-front-of-laptop-lgtm<br><img alt="dog-in-front-of-laptop-lgtm" src="https://media.giphy.com/media/eM0U5NQtVHu30VM5sS/giphy.gif" width="420">
 
