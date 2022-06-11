@@ -2,6 +2,8 @@ from pathlib import Path
 
 import yaml
 
+from lgtm_db import StringOutputFormat, gif_to_string_output
+
 
 def render_section(resources: list, section_title: str) -> str:
     """Renders a particular section given a section title in markdown format"""
@@ -10,8 +12,11 @@ def render_section(resources: list, section_title: str) -> str:
 
     for r in resources:
         name = r["name"]
-        url = r["url"]
-        img_tag = f'<img alt="{name}" src="{url}" width="420">'
+        img_tag = gif_to_string_output(
+            **r,
+            output_format=StringOutputFormat.HTML,
+            width=420,
+        )
         section_content.append(rf"**Name**: {name}<br>{img_tag}")
 
     return "\n\n".join(section_content)
