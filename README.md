@@ -5,7 +5,7 @@
 <a href="https://github.com/thatlittleboy/lgtm-db/actions"><img alt="Actions Status" src="https://github.com/thatlittleboy/lgtm-db/actions/workflows/tests.yml/badge.svg"></a>
 </p>
 
-A repository containing LGTM-related gifs and images.
+A repository containing LGTM-related gifs and images for PR approvals and merges.
 
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
 
@@ -15,7 +15,7 @@ View all the available images and gifs in the [gallery page](docs/gallery.md).
 
 ---
 
-## Installation
+## ⬇️ Installation
 This project is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
@@ -23,36 +23,38 @@ Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
 pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
-## Usage
+## 🚀 Usage
 This project exposes a simple CLI API that prints out the HTML img tag of a randomly selected gif/image in the db.
 
 ```shell
 $ lgtm-db
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
 ```
+You can then pipe the result into `pbcopy` etc. to copy the result into your clipboard.
 
 **NOTE**: API is very much subject to change.
 
-## Todo
+## 📝 Todo
 Things that I may or may not get around to doing...
-* support lazy loading of [gallery](docs/gallery.md) markdown file
-  * loading can become quite bloated if the gallery gets big
-* supporting cli args
-  * default with no args should print help message
-  * selecting random static imgs or gifs
-  * selecting random based on name
-* automating the release process with some tool (Makefile? doit?)
 * write a local pre-commit hook in this repo to test:
   * if there are duplicated names (id's should be unique)
   * if there are duplicated urls
 * write a sample greasemonkey script to automatically add the img tag of a random on work gitlab (cf. https://github.com/chriskuehl/shipit/blob/master/shipit.user.js)
   * for gitlab, there's no approve button; my idea is to look out for `/lgtm` quick action and replace the whole message body with a random lgtm-db asset
+* supporting cli args
+  * default with no args should print help message
+  * selecting random static imgs or gifs: `lgtm-db random`
+  * selecting random based on name
+* support tags metadata
+* automating the release process with some tool (doit? just?)
+* support lazy loading of [gallery](docs/gallery.md) markdown file
+  * loading can become quite bloated if the gallery gets big
 
-## Release
+## 📌 Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
 1. And tag the ref, `git tag v1.0.1`, for example.
 
-## Inspiration
+## ⚡️ Inspiration
 Inspiration from the following repositories:
 * https://github.com/seantomburke/shipit.gifs
 * https://github.com/chriskuehl/shipit
