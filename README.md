@@ -37,9 +37,11 @@ You can then pipe the result into `pbcopy` etc. to copy the result into your cli
 
 ### Browser user script
 Integration with the browser is experimental.
-You need to install Greasemonkey / Tampermonkey, and invoke a user script to insert a random gif into the message box (upon PR approval, or any other event you would like).
+You need to install Greasemonkey / Tampermonkey, and invoke a user script to insert a random gif into the message box (upon PR approval, or any other Javascript event you like).
 
 Sample user scripts for Gitlab and Github are found in the [scripts folder](scripts/greasemonkey).
+
+(Gifs demonstrating this to be done?)
 
 ## 📝 Todo
 Things that I may or may not get around to doing...
