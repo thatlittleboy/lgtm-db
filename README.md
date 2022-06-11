@@ -1,7 +1,8 @@
-<h2 align="center">~~~ LGTM db ~~~</h2>
+<h1 align="center">~~~ LGTM db ~~~</h1>
 
 <p align="center">
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://github.com/thatlittleboy/lgtm-db/actions"><img alt="Actions Status" src="https://github.com/thatlittleboy/lgtm-db/actions/workflows/tests.yml/badge.svg"></a>
 </p>
 
 A repository containing LGTM-related gifs and images.

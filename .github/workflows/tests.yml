@@ -1,10 +1,9 @@
-name: Validate gallery md file
+name: Tests
 
-on:
-  - push
+on: [push]
 
 jobs:
-  validate:
+  validate-gallery-md:
     name: Checks if the gallery md file is up-to-date
     runs-on: ubuntu-latest
 
