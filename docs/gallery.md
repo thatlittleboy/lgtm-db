@@ -50,7 +50,7 @@
 
 **Name**: pedro-pascal-fist-salute<br><img alt="pedro-pascal-fist-salute" src="https://media.giphy.com/media/n58MqIchLqAalRQAQB/giphy.gif" width="420">
 
-**Name**: choi-aera-fightformyway-thumbsup<br><img alt="choi-aera-fightformyway-thumbsup" src="https://media.giphy.com/media/OvCf6ZgDdEUAm0P8r6/giphy.gif" width="420">
+**Name**: choi-aera-fightformyway-thumbsup<br><img alt="choi-aera-fightformyway-thumbsup" src="https://media.giphy.com/media/PL6d4VCbp1hhkF2wO9/giphy.gif" width="420">
 
 **Name**: this-is-a-high-five-moment<br><img alt="this-is-a-high-five-moment" src="https://media.giphy.com/media/w5S93jM3bA3rbPTOpO/giphy.gif" width="420">
 
