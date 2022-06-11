@@ -25,7 +25,7 @@ def render_section(resources: list, section_title: str) -> str:
 def write_md_file(path: Path, contents: str) -> None:
     """Writes the string contents to the file path"""
     if path.exists():
-        print("Overwriting!")
+        print(" Overwriting! ")
 
     path.write_text(contents)
 
@@ -35,6 +35,7 @@ def main() -> int:
     #   because this script is meant to be run even without installing the package.
     #   the disadvantage here is that this script will be less portable.
     project_path = Path(__file__).parent.parent
+
     db_path = project_path / "lgtm_db" / "data" / "db.yaml"
     with db_path.open(mode="r") as f:
         ps = yaml.safe_load(f)
@@ -49,6 +50,7 @@ def main() -> int:
         # add a new line at end-of-file to stop pre-commit from complaining
         contents="\n\n".join(all_contents) + "\n",
     )
+
     return 0
 
 
