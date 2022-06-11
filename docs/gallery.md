@@ -8,7 +8,7 @@
 
 ## Gifs
 
-**Name**: seal-of-approval<br><img alt="seal-of-approval" src="https://media.giphy.com/media/13zeE9qQNC5IKk/giphy.gif" width="420">
+**Name**: seal-of-approval-seal<br><img alt="seal-of-approval-seal" src="https://media.giphy.com/media/13zeE9qQNC5IKk/giphy.gif" width="420">
 
 **Name**: spongebob-many-thumbs-up<br><img alt="spongebob-many-thumbs-up" src="https://media.giphy.com/media/3o7abGQa0aRJUurpII/giphy.gif" width="420">
 
@@ -51,3 +51,5 @@
 **Name**: pedro-pascal-fist-salute<br><img alt="pedro-pascal-fist-salute" src="https://media.giphy.com/media/n58MqIchLqAalRQAQB/giphy.gif" width="420">
 
 **Name**: choi-aera-fightformyway-thumbsup<br><img alt="choi-aera-fightformyway-thumbsup" src="https://media.giphy.com/media/OvCf6ZgDdEUAm0P8r6/giphy.gif" width="420">
+
+**Name**: this-is-a-high-five-moment<br><img alt="this-is-a-high-five-moment" src="https://media.giphy.com/media/w5S93jM3bA3rbPTOpO/giphy.gif" width="420">
