@@ -1,0 +1,13 @@
+name: Validate pull request
+
+on:
+  - pull_request
+
+jobs:
+  validate:
+    name: Various checks for the pull request
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: PR title naming rules
+        uses: naveenk1223/action-pr-title@v1.0.0
