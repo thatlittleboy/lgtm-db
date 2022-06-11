@@ -40,8 +40,6 @@ Things that I may or may not get around to doing...
   * default with no args should print help message
   * selecting random static imgs or gifs
   * selecting random based on name
-* support alternative outputs (not just HTML tags)
-  * markdown `![alt-text](url)` syntax
 * automating the release process with some tool (Makefile? doit?)
 * write a local pre-commit hook in this repo to test:
   * if there are duplicated names (id's should be unique)

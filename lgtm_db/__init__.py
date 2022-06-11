@@ -14,6 +14,7 @@ else:
 @enum.unique
 class StringOutputFormat(str, enum.Enum):
     HTML = "HTML"
+    MARKDOWN = "Markdown"
 
 
 def gif_to_string_output(
@@ -25,6 +26,10 @@ def gif_to_string_output(
     if output_format == StringOutputFormat.HTML:
         width = width or 500
         return f'<img alt="{name}" src="{url}" width="{width}">'
+    if output_format == StringOutputFormat.MARKDOWN:
+        if width is not None:
+            raise ValueError("width is not supported when output_format is Markdown")
+        return f"![{name}]({url})"
     raise ValueError(f"output_format: {output_format!r} not supported.")
 
 
