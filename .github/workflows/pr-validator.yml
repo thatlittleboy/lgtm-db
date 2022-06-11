@@ -11,3 +11,8 @@ jobs:
     steps:
       - name: PR title naming rules
         uses: naveenk1223/action-pr-title@v1.0.0
+        with:
+          regex: '([a-z])+: ([a-z])+'
+          allowed_prefixes: 'fix,feat,refactor,chore,docs,ci,perf,release'
+          prefix_case_sensitive: true
+          min_length: 10
