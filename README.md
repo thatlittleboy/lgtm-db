@@ -54,4 +54,5 @@ Things that I may or may not get around to doing...
 ## Inspiration
 Inspiration from the following repositories:
 * https://github.com/seantomburke/shipit.gifs
+* https://github.com/chriskuehl/shipit
 * https://github.com/maludecks/take-my-approval
