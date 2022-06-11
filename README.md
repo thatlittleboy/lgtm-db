@@ -46,6 +46,10 @@ Things that I may or may not get around to doing...
 * write a local pre-commit hook in this repo to test:
   * if there are duplicated names (id's should be unique)
   * if there are duplicated urls
+* write a sample greasemonkey script to automatically add the img tag of a random on work gitlab (cf. https://github.com/chriskuehl/shipit/blob/master/shipit.user.js)
+  * for gitlab, there's no approve button; my idea is to look out for `/lgtm` quick action and replace the whole message body with a random lgtm-db asset
+* refactor library code:
+  * refactor common `to_html_tag_output` function
 
 ## Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
