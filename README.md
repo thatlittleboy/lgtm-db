@@ -24,6 +24,7 @@ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
 ## 🚀 Usage
+### CLI
 This project exposes a simple CLI API that prints out the HTML img tag of a randomly selected gif/image in the db.
 
 ```shell
@@ -34,13 +35,17 @@ You can then pipe the result into `pbcopy` etc. to copy the result into your cli
 
 **NOTE**: API is very much subject to change.
 
+### Browser user script
+Integration with the browser is experimental.
+You need to install Greasemonkey / Tampermonkey, and invoke a user script to insert a random gif into the message box (upon PR approval, or any other event you would like).
+
+Sample user scripts for Gitlab and Github are found in [scripts/greasemonkey].
+
 ## 📝 Todo
 Things that I may or may not get around to doing...
 * write a local pre-commit hook in this repo to test:
   * if there are duplicated names (id's should be unique)
   * if there are duplicated urls
-* write a sample greasemonkey script to automatically add the img tag of a random on work gitlab (cf. https://github.com/chriskuehl/shipit/blob/master/shipit.user.js)
-  * for gitlab, there's no approve button; my idea is to look out for `/lgtm` quick action and replace the whole message body with a random lgtm-db asset
 * supporting cli args
   * default with no args should print help message
   * selecting random static imgs or gifs: `lgtm-db random`
