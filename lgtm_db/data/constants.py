@@ -4,6 +4,7 @@ SEARCH_TERMS = [
     "high-five",
     "awesome",
     "celebrate",
+    "thumbs-up",
     "cool",
     "done",
     "lets-go",

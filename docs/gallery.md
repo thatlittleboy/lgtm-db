@@ -38,7 +38,7 @@
 
 **Name**: borat-great-success<br><img alt="borat-great-success" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" width="420">
 
-**Name**: walkby-cat-high-five<br><img alt="walkby-cat-high-five" src="https://media.giphy.com/media/6a7XrfeUxlEB2/giphy.gif" width="420">
+**Name**: walkby-cat-high-five-shipit<br><img alt="walkby-cat-high-five-shipit" src="https://i.fluffy.cc/MKjDMmwXxZlqRTwnn070gVqZ8Rwh6d3p.gif" width="420">
 
 **Name**: dog-in-front-of-laptop-lgtm<br><img alt="dog-in-front-of-laptop-lgtm" src="https://media.giphy.com/media/eM0U5NQtVHu30VM5sS/giphy.gif" width="420">
 
@@ -53,3 +53,19 @@
 **Name**: choi-aera-fightformyway-thumbsup<br><img alt="choi-aera-fightformyway-thumbsup" src="https://media.giphy.com/media/OvCf6ZgDdEUAm0P8r6/giphy.gif" width="420">
 
 **Name**: this-is-a-high-five-moment<br><img alt="this-is-a-high-five-moment" src="https://media.giphy.com/media/w5S93jM3bA3rbPTOpO/giphy.gif" width="420">
+
+**Name**: unwilling-cat-low-five-shipit<br><img alt="unwilling-cat-low-five-shipit" src="https://media.giphy.com/media/TLKp7l4rdWFMVfN5hP/giphy.gif" width="420">
+
+**Name**: cat-standing-thankyou<br><img alt="cat-standing-thankyou" src="https://media.giphy.com/media/ucI5kRLqH0WXu/giphy.gif" width="420">
+
+**Name**: multiple-pikachu-shipit<br><img alt="multiple-pikachu-shipit" src="https://i.fluffy.cc/BPgxZkmsrgmfcDFDCNWC3m4CW0gCJF7w.gif" width="420">
+
+**Name**: sitting-cat-high-five<br><img alt="sitting-cat-high-five" src="https://i.fluffy.cc/TNRR0PklwSCMZlZHQkvpQPNl8h50SpgP.gif" width="420">
+
+**Name**: husky-jumping-shipit<br><img alt="husky-jumping-shipit" src="https://i.fluffy.cc/b6wlBbdVkX83CHpLWxHZw74WJxHVQc9S.gif" width="420">
+
+**Name**: carrying-dog-shipit-plz<br><img alt="carrying-dog-shipit-plz" src="https://i.fluffy.cc/7WXqprWzDtCpbfprBZG1Hngnp7H7pfQm.gif" width="420">
+
+**Name**: kitten-low-five-shipit<br><img alt="kitten-low-five-shipit" src="https://i.fluffy.cc/3X84Bq2RR182XcPr0NTKKCp7wvNT8MhD.gif" width="420">
+
+**Name**: believe-flying-puppy-shipit<br><img alt="believe-flying-puppy-shipit" src="https://media.giphy.com/media/37YkA62o0EacPqD0xm/giphy.gif" width="420">
