@@ -43,6 +43,9 @@ Things that I may or may not get around to doing...
 * support alternative outputs (not just HTML tags)
   * markdown `![alt-text](url)` syntax
 * automating the release process with some tool (Makefile? doit?)
+* write a local pre-commit hook in this repo to test
+  * if there are duplicated names (id's should be unique)
+  * if there are duplicated urls
 
 ## Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
