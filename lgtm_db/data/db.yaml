@@ -6,7 +6,7 @@ images:
   - name: success-kid-shipit
     url: https://memegenerator.net/img/instances/68718219.jpg
 gifs:
-  - name: seal-of-approval
+  - name: seal-of-approval-seal
     url: https://media.giphy.com/media/13zeE9qQNC5IKk/giphy.gif
   - name: spongebob-many-thumbs-up
     url: https://media.giphy.com/media/3o7abGQa0aRJUurpII/giphy.gif
@@ -50,3 +50,5 @@ gifs:
     url: https://media.giphy.com/media/n58MqIchLqAalRQAQB/giphy.gif
   - name: choi-aera-fightformyway-thumbsup
     url: https://media.giphy.com/media/OvCf6ZgDdEUAm0P8r6/giphy.gif
+  - name: this-is-a-high-five-moment
+    url: https://media.giphy.com/media/w5S93jM3bA3rbPTOpO/giphy.gif
