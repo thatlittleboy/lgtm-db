@@ -8,7 +8,7 @@ from lgtm_db import StringOutputFormat, gif_to_string_output
 def render_section(resources: list, section_title: str) -> str:
     """Renders a particular section given a section title in markdown format"""
     section_content = []
-    section_content.append(f"## {section_title.title()}")
+    section_content.append(f"<h2>{section_title.title()}</h2>")
 
     for rsrc in resources:
         name = rsrc["name"]
@@ -16,10 +16,11 @@ def render_section(resources: list, section_title: str) -> str:
             rsrc,
             output_format=StringOutputFormat.HTML,
             desired_width=420,
+            lazy=True,
         )
-        section_content.append(rf"**Name**: {name}<br>{img_tag}")
+        section_content.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
 
-    return "\n\n".join(section_content)
+    return "<br><br>".join(section_content)
 
 
 def write_md_file(path: Path, contents: str) -> None:

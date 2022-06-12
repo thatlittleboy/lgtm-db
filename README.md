@@ -54,8 +54,6 @@ Things that I may or may not get around to doing...
   * selecting random based on name
 * support tags metadata
 * automating the release process with some tool (doit? just?)
-* support lazy loading of [gallery](docs/gallery.md) markdown file
-  * loading can become quite bloated if the gallery gets big
 
 ## 📌 Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
