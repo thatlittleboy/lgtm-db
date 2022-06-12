@@ -1,19 +1,39 @@
 from pathlib import Path
 
 import yaml
+from bs4 import BeautifulSoup
+from bs4.dammit import EntitySubstitution
+from bs4.formatter import HTMLFormatter
 
 from lgtm_db import StringOutputFormat, gif_to_string_output
 
 
-def render_section(resources: list, section_title: str) -> str:
-    """Renders a particular section given a section title in markdown format.
+class GalleryFormatter(HTMLFormatter):
+    def __init__(self):
+        # html5: https://bazaar.launchpad.net/~leonardr/beautifulsoup/bs4/view/head:/bs4/formatter.py#L166
+        super().__init__(
+            entity_substitution=EntitySubstitution.substitute_html,
+            void_element_close_prefix=None,
+            empty_attributes_are_booleans=True,
+        )
 
-    Loads the first 5 images eagerly and the remaining lazily, for efficiency
-    reasons.
-    """
+    def attributes(self, tag):
+        if tag.attrs is None:
+            return None
+        for k, v in tag.attrs.items():
+            if k == "m":
+                continue
+            yield k, v
+
+
+def render_section(resources: list, section_title: str) -> str:
+    """Renders a particular section given a section title in HTML format."""
     body = f"<h2>{section_title.title()}</h2>\n"
     section_contents = []
 
+    # For some reason, turning on lazy loading for the first 5 (say), and eager for the
+    #   remainder makes the lazy-loading not work properly.. No idea why that is the
+    #   case.
     for idx, rsrc in enumerate(resources):
         name = rsrc["name"]
         img_tag = gif_to_string_output(
@@ -22,13 +42,13 @@ def render_section(resources: list, section_title: str) -> str:
             desired_width=420,
             lazy=idx >= 0,
         )
-        section_contents.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
+        section_contents.append(rf"<b>Name</b>: {name}<br>{img_tag}")
 
-    body += "\n".join(section_contents)
+    body += "\n\n".join(section_contents)
     return body
 
 
-def write_md_file(path: Path, contents: str) -> None:
+def write_html_file(path: Path, contents: str) -> None:
     """Writes the string contents to the file path"""
     if path.exists():
         print(" Overwriting! ")
@@ -42,21 +62,28 @@ def main() -> int:
     #   the disadvantage here is that this script will be less portable.
     project_path = Path(__file__).parent.parent
 
-    db_path = project_path / "lgtm_db" / "data" / "db.yaml"
+    template_path = project_path / "docs/assets/template-index.html"
+    soup = BeautifulSoup(template_path.read_text(), "html.parser")
+
+    # load data
+    db_path = project_path / "lgtm_db/data/db.yaml"
     with db_path.open(mode="r") as f:
         ps = yaml.safe_load(f)
 
+    # generate HTML body
     all_contents = []
     for section_title, resources in ps.items():
         all_contents.append(render_section(resources, section_title))
 
-    write_path = project_path / "docs" / "gallery.md"
-    write_md_file(
-        path=write_path,
-        # add a new line at end-of-file to stop pre-commit from complaining
-        contents="\n\n".join(all_contents) + "\n",
-    )
+    body = BeautifulSoup("\n\n".join(all_contents), "html.parser")
+    soup.find("body").string.replace_with(body)
 
+    # write out final html
+    write_path = project_path / "docs/index.html"
+    write_html_file(
+        path=write_path,
+        contents=soup.prettify(formatter=GalleryFormatter()),
+    )
     return 0
 
 
