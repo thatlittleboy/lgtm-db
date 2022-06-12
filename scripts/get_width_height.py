@@ -24,10 +24,9 @@ with db_path.open(mode="r") as f:
 
 all_contents = ps["images"] + ps["gifs"]
 for p in all_contents:
-    sze = get_size(p["url"])
-    p["width"] = sze[0]
-    p["height"] = sze[1]
     print(p["name"])
+    sze = get_size(p["url"])
+    p["width"], p["height"] = sze
 
 new_db_path = db_path.parent / "new_db.yaml"
 with new_db_path.open(mode="w") as f:
