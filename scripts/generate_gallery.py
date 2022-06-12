@@ -6,21 +6,25 @@ from lgtm_db import StringOutputFormat, gif_to_string_output
 
 
 def render_section(resources: list, section_title: str) -> str:
-    """Renders a particular section given a section title in markdown format"""
-    section_content = []
-    section_content.append(f"<h2>{section_title.title()}</h2>")
+    """Renders a particular section given a section title in markdown format.
 
-    for rsrc in resources:
+    Loads the first 5 images eagerly and the remaining lazily, for efficiency
+    reasons.
+    """
+    section_contents = []
+    section_contents.append(f"<h2>{section_title.title()}</h2>")
+
+    for idx, rsrc in enumerate(resources):
         name = rsrc["name"]
         img_tag = gif_to_string_output(
             rsrc,
             output_format=StringOutputFormat.HTML,
             desired_width=420,
-            lazy=True,
+            lazy=idx < 5,
         )
-        section_content.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
+        section_contents.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
 
-    return "<br><br>".join(section_content)
+    return "<br><br>".join(section_contents)
 
 
 def write_md_file(path: Path, contents: str) -> None:
