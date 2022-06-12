@@ -15,6 +15,7 @@ class GalleryFormatter(HTMLFormatter):
             entity_substitution=EntitySubstitution.substitute_html,
             void_element_close_prefix=None,
             empty_attributes_are_booleans=True,
+            indent=2,
         )
 
     def attributes(self, tag):
