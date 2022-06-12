@@ -20,7 +20,7 @@ def render_section(resources: list, section_title: str) -> str:
             rsrc,
             output_format=StringOutputFormat.HTML,
             desired_width=420,
-            lazy=idx >= 5,
+            lazy=idx >= 0,
         )
         section_contents.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
 
