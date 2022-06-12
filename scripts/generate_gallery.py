@@ -10,12 +10,12 @@ def render_section(resources: list, section_title: str) -> str:
     section_content = []
     section_content.append(f"## {section_title.title()}")
 
-    for r in resources:
-        name = r["name"]
+    for rsrc in resources:
+        name = rsrc["name"]
         img_tag = gif_to_string_output(
-            **r,
+            rsrc,
             output_format=StringOutputFormat.HTML,
-            width=420,
+            desired_width=420,
         )
         section_content.append(rf"**Name**: {name}<br>{img_tag}")
 
