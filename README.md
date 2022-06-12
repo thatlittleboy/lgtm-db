@@ -29,7 +29,7 @@ This project exposes a simple CLI API that prints out the HTML img tag of a rand
 
 ```shell
 $ lgtm-db
-<img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+<img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500" height="390">
 ```
 You can then pipe the result into `pbcopy` etc. to copy the result into your clipboard.
 
