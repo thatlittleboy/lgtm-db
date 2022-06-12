@@ -28,7 +28,7 @@ def gif_to_string_output(
 
     if output_format == StringOutputFormat.HTML:
         width = desired_width or 500  # TODO: add logic for gif["width"]
-        height = width / aspect_ratio
+        height = int(width / aspect_ratio)
         return f'<img alt="{name}" src="{url}" width="{width}" height="{height}">'
     if output_format == StringOutputFormat.MARKDOWN:
         if desired_width is not None:
