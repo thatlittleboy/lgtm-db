@@ -68,7 +68,7 @@ def gif_to_string_output(
 
 
 def main() -> int:
-    resource_path = files("lgtm_db") / "data" / "db.yaml"
+    resource_path = files("lgtm_db") / "data/db.yaml"
     with resource_path.open(mode="r") as f:
         ps = yaml.load(f, Loader=Loader)
 

@@ -23,7 +23,7 @@ def get_size(url):
 
 project_path = Path(__file__).parent.parent
 
-db_path = project_path / "lgtm_db" / "data" / "db.yaml"
+db_path = project_path / "lgtm_db/data/db.yaml"
 with db_path.open(mode="r") as f:
     ps = yaml.load(f, Loader=Loader)
 
