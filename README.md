@@ -11,7 +11,7 @@ A repository containing LGTM-related gifs and images for PR approvals and merges
 
 ---
 
-View all the available images and gifs in the [gallery page](docs/gallery.md).
+View all the available images and gifs in the [gallery page](https://thatlittleboy.github.io/lgtm-db/).
 
 ---
 

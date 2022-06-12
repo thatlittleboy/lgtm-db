@@ -21,6 +21,6 @@ jobs:
 
       - name: Run the comparison of gallery files
         run: |
-          mv docs/gallery.md docs/gallery-old.md
+          mv docs/index.html docs/index-old.html
           python -m scripts.generate_gallery
-          diff docs/gallery.md docs/gallery-old.md
+          diff docs/index.html docs/index-old.html
