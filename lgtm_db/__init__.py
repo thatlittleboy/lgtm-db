@@ -18,17 +18,21 @@ class StringOutputFormat(str, enum.Enum):
 
 
 def gif_to_string_output(
-    name: str,
-    url: str,
+    gif: dict,
     output_format: StringOutputFormat,
-    width: Optional[int] = None,
+    desired_width: Optional[int] = None,
 ) -> str:
+    name = gif["name"]
+    url = gif["url"]
+    aspect_ratio = gif["width"] / gif["height"]
+
     if output_format == StringOutputFormat.HTML:
-        width = width or 500
-        return f'<img alt="{name}" src="{url}" width="{width}">'
+        width = desired_width or 500  # TODO: add logic for gif["width"]
+        height = int(width / aspect_ratio)
+        return f'<img alt="{name}" src="{url}" width="{width}" height="{height}">'
     if output_format == StringOutputFormat.MARKDOWN:
-        if width is not None:
-            raise ValueError("width is not supported when output_format is Markdown")
+        if desired_width is not None:
+            raise ValueError("desired_width is not supported when output_format is Markdown")
         return f"![{name}]({url})"
     raise ValueError(f"output_format: {output_format!r} not supported.")
 
@@ -42,9 +46,9 @@ def main() -> int:
     chosen = random.choice(all_lgtm)
 
     output = gif_to_string_output(
-        **chosen,
+        chosen,
         output_format=StringOutputFormat.HTML,
-        width=500,
+        desired_width=500,
     )
     print(output)
     return 0
