@@ -55,7 +55,13 @@ Things that I may or may not get around to doing...
 * support tags metadata
 * automating the release process with some tool (doit? just?)
 
-## 📌 Release
+## 👷 Development
+Pip install in editable mode (in a virtualenv).
+```shell
+$ pip install -e ".[dev]"
+```
+
+### 📌 Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
 1. And tag the ref, `git tag v1.0.1`, for example.
 
