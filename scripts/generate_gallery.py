@@ -11,8 +11,8 @@ def render_section(resources: list, section_title: str) -> str:
     Loads the first 5 images eagerly and the remaining lazily, for efficiency
     reasons.
     """
+    body = f"<h2>{section_title.title()}</h2>\n"
     section_contents = []
-    section_contents.append(f"<h2>{section_title.title()}</h2>")
 
     for idx, rsrc in enumerate(resources):
         name = rsrc["name"]
@@ -24,7 +24,8 @@ def render_section(resources: list, section_title: str) -> str:
         )
         section_contents.append(rf"<strong>Name</strong>: {name}<br>{img_tag}")
 
-    return "<br><br>".join(section_contents)
+    body += "\n".join(section_contents)
+    return body
 
 
 def write_md_file(path: Path, contents: str) -> None:
