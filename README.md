@@ -11,7 +11,7 @@ A repository containing LGTM-related gifs and images for PR approvals and merges
 
 ---
 
-View all the available images and gifs in the [gallery page](docs/gallery.md).
+View all the available images and gifs in the [gallery page](https://thatlittleboy.github.io/lgtm-db/).
 
 ---
 
@@ -54,10 +54,14 @@ Things that I may or may not get around to doing...
   * selecting random based on name
 * support tags metadata
 * automating the release process with some tool (doit? just?)
-* support lazy loading of [gallery](docs/gallery.md) markdown file
-  * loading can become quite bloated if the gallery gets big
 
-## 📌 Release
+## 👷 Development
+Pip install in editable mode (in a virtualenv).
+```shell
+$ pip install -e ".[dev]"
+```
+
+### 📌 Release
 1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.0.1`
 1. And tag the ref, `git tag v1.0.1`, for example.
 

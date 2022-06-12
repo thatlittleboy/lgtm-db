@@ -3,8 +3,8 @@ name: Tests
 on: [push]
 
 jobs:
-  validate-gallery-md:
-    name: Checks if the gallery md file is up-to-date
+  validate-gallery-html:
+    name: Checks if the gallery html file is up-to-date
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,10 @@ jobs:
           python-version: '3.9'
 
       - name: Setup python dependencies
-        run: pip install pyyaml
+        run: pip install ".[dev]"
 
       - name: Run the comparison of gallery files
         run: |
-          mv docs/gallery.md docs/gallery-old.md
+          mv docs/index.html docs/index-old.html
           python -m scripts.generate_gallery
-          diff docs/gallery.md docs/gallery-old.md
+          diff docs/index.html docs/index-old.html

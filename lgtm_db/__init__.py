@@ -21,15 +21,40 @@ def gif_to_string_output(
     gif: dict,
     output_format: StringOutputFormat,
     desired_width: Optional[int] = None,
+    lazy: bool = False,
 ) -> str:
+    """Converts a gif object to a particular string format.
+
+    Args:
+        gif:
+            Image data containing at least `name` and `url`.
+        output_format:
+            Currently only HTML and Markdown are supported.
+        desired_width:
+            Desired width of the rendered image. Only supported in HTML mode.
+            Defaults to 500.
+        lazy:
+            Whether to use lazy or eager loading. Only supported in HTML mode.
+            Defaults to False.
+
+    Returns:
+        A string representation of the image, in the specified format.
+    """
     name = gif["name"]
     url = gif["url"]
-    aspect_ratio = gif["width"] / gif["height"]
 
     if output_format == StringOutputFormat.HTML:
+        aspect_ratio = gif["width"] / gif["height"]
         width = desired_width or 500  # TODO: add logic for gif["width"]
         height = int(width / aspect_ratio)
-        return f'<img alt="{name}" src="{url}" width="{width}" height="{height}">'
+
+        t_alt = f' alt="{name}"'
+        t_src = f' src="{url}"'
+        t_width = f' width="{width}"'
+        t_height = f' height="{height}"'
+        t_loading = ' loading="lazy"' if lazy else ""
+        t = f"<img{t_loading}{t_alt}{t_src}{t_width}{t_height}>"
+        return t
     if output_format == StringOutputFormat.MARKDOWN:
         if desired_width is not None:
             raise ValueError("desired_width is not supported when output_format is Markdown")
