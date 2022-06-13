@@ -20,7 +20,7 @@ This project is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
 ```shell
-pipx install git+https://github.com/thatlittleboy/lgtm-db
+$ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
 ## 🚀 Usage
@@ -58,7 +58,7 @@ Things that I may or may not get around to doing...
 ## 👷 Development
 Pip install in editable mode (in a virtualenv).
 ```shell
-$ pip install -e ".[dev]"
+(venv) $ pip install -e ".[dev]"
 ```
 
 ### 📌 Release
