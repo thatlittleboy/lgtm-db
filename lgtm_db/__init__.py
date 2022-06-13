@@ -5,6 +5,11 @@ from typing import Optional
 
 import yaml
 
+try:
+    from yaml.cyaml import CSafeLoader as Loader
+except ImportError:
+    from yaml import SafeLoader as Loader
+
 if sys.version_info >= (3, 9):
     from importlib.resources import files
 else:
@@ -65,7 +70,7 @@ def gif_to_string_output(
 def main() -> int:
     resource_path = files("lgtm_db") / "data" / "db.yaml"
     with resource_path.open(mode="r") as f:
-        ps = yaml.safe_load(f)
+        ps = yaml.load(f, Loader=Loader)
 
     all_lgtm = ps["images"] + ps["gifs"]
     chosen = random.choice(all_lgtm)

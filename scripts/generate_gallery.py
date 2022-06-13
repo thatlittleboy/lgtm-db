@@ -5,6 +5,11 @@ from bs4 import BeautifulSoup
 from bs4.dammit import EntitySubstitution
 from bs4.formatter import HTMLFormatter
 
+try:
+    from yaml.cyaml import CSafeLoader as Loader
+except ImportError:
+    from yaml import SafeLoader as Loader
+
 from lgtm_db import StringOutputFormat, gif_to_string_output
 
 
@@ -69,7 +74,7 @@ def main() -> int:
     # load data
     db_path = project_path / "lgtm_db/data/db.yaml"
     with db_path.open(mode="r") as f:
-        ps = yaml.safe_load(f)
+        ps = yaml.load(f, Loader=Loader)
 
     # generate HTML body
     all_contents = []
