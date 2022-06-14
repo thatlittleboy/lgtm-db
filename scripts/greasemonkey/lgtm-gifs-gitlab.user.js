@@ -38,7 +38,7 @@
             e.target.innerText
         );
 
-        if (all_lgtm.length && e.target.className === "gl-button-text" && e.target.innerText === "Approve") {
+        if (all_lgtm.length && e.target.className === "gl-button-text" && e.target.innerText.startsWith("Approve")) {
             console.log("inside approved if-block");
 
             // user just clicked on the "Approve" button
