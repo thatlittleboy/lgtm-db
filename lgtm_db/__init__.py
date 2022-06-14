@@ -70,9 +70,9 @@ def gif_to_string_output(
 def main() -> int:
     resource_path = files("lgtm_db") / "data/db.yaml"
     with resource_path.open(mode="r") as f:
-        ps = yaml.load(f, Loader=Loader)
+        contents = yaml.load(f, Loader=Loader)
 
-    all_lgtm = ps["images"] + ps["gifs"]
+    all_lgtm = contents["images"] + contents["gifs"]
     chosen = random.choice(all_lgtm)
 
     output = gif_to_string_output(
