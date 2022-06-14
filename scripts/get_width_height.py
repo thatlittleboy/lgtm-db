@@ -21,18 +21,22 @@ def get_size(url):
     return image.size
 
 
-project_path = Path(__file__).parent.parent
+def main() -> int:
+    project_path = Path(__file__).parent.parent
 
-db_path = project_path / "lgtm_db" / "data" / "db.yaml"
-with db_path.open(mode="r") as f:
-    ps = yaml.load(f, Loader=Loader)
+    db_path = project_path / "lgtm_db/data/db.yaml"
+    with db_path.open(mode="r") as f:
+        contents = yaml.load(f, Loader=Loader)
 
-all_contents = ps["images"] + ps["gifs"]
-for p in all_contents:
-    print(p["name"])
-    sze = get_size(p["url"])
-    p["width"], p["height"] = sze
+    data = contents["images"] + contents["gifs"]
+    for p in data:
+        print(p["name"])
+        p["width"], p["height"] = get_size(p["url"])
 
-new_db_path = db_path.parent / "new_db.yaml"
-with new_db_path.open(mode="w") as f:
-    yaml.safe_dump(ps, f, sort_keys=False)
+    new_db_path = db_path.parent / "new_db.yaml"
+    with new_db_path.open(mode="w") as f:
+        yaml.safe_dump(data, f, sort_keys=False)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

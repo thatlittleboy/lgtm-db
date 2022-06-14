@@ -74,14 +74,14 @@ def main() -> int:
     # load data
     db_path = project_path / "lgtm_db/data/db.yaml"
     with db_path.open(mode="r") as f:
-        ps = yaml.load(f, Loader=Loader)
+        contents = yaml.load(f, Loader=Loader)
 
     # generate HTML body
-    all_contents = []
-    for section_title, resources in ps.items():
-        all_contents.append(render_section(resources, section_title))
+    data = []
+    for section_title, resources in contents.items():
+        data.append(render_section(resources, section_title))
 
-    body = BeautifulSoup("\n\n".join(all_contents), "html.parser")
+    body = BeautifulSoup("\n\n".join(data), "html.parser")
     soup.find("body").string.replace_with(body)
 
     # write out final html

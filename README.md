@@ -20,7 +20,7 @@ This project is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
 ```shell
-pipx install git+https://github.com/thatlittleboy/lgtm-db
+$ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
 ## 🚀 Usage
@@ -29,7 +29,7 @@ This project exposes a simple CLI API that prints out the HTML img tag of a rand
 
 ```shell
 $ lgtm-db
-<img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500">
+<img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500" height="390">
 ```
 You can then pipe the result into `pbcopy` etc. to copy the result into your clipboard.
 
@@ -43,22 +43,10 @@ Sample user scripts for Gitlab and Github are found in the [scripts folder](scri
 
 (Gifs demonstrating this to be done?)
 
-## 📝 Todo
-Things that I may or may not get around to doing...
-* write a local pre-commit hook in this repo to test:
-  * if there are duplicated names (id's should be unique)
-  * if there are duplicated urls
-* supporting cli args
-  * default with no args should print help message
-  * selecting random static imgs or gifs: `lgtm-db random`
-  * selecting random based on name
-* support tags metadata
-* automating the release process with some tool (doit? just?)
-
 ## 👷 Development
 Pip install in editable mode (in a virtualenv).
 ```shell
-$ pip install -e ".[dev]"
+(venv) $ pip install -e ".[dev]"
 ```
 
 ### 📌 Release
