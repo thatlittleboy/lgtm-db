@@ -43,18 +43,6 @@ Sample user scripts for Gitlab and Github are found in the [scripts folder](scri
 
 (Gifs demonstrating this to be done?)
 
-## 📝 Todo
-Things that I may or may not get around to doing...
-* write a local pre-commit hook in this repo to test:
-  * if there are duplicated names (id's should be unique)
-  * if there are duplicated urls
-* supporting cli args
-  * default with no args should print help message
-  * selecting random static imgs or gifs: `lgtm-db random`
-  * selecting random based on name
-* support tags metadata
-* automating the release process with some tool (doit? just?)
-
 ## 👷 Development
 Pip install in editable mode (in a virtualenv).
 ```shell
