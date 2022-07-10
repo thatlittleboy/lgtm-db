@@ -41,7 +41,8 @@ You need to install Greasemonkey / Tampermonkey, and invoke a user script to ins
 
 Sample user scripts for Gitlab and Github are found in the [scripts folder](scripts/greasemonkey).
 
-(Gifs demonstrating this to be done?)
+Demo:
+<img src="./docs/assets/greasemonkey-demo-gh.mp4">
 
 ## 👷 Development
 Pip install in editable mode (in a virtualenv).
