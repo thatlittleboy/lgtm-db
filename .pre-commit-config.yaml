@@ -16,7 +16,7 @@ repos:
       - id: check-yaml
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.35.0
+    rev: v2.37.3
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
@@ -33,13 +33,13 @@ repos:
       - id: python-check-blanket-noqa
 
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 22.8.0
     hooks:
       - id: black
         args: ["--config", "pyproject.toml"]
 
   - repo: https://github.com/hadialqattan/pycln
-    rev: v2.0.1
+    rev: v2.1.1
     hooks:
       - id: pycln
         args: [--config=pyproject.toml]
@@ -50,7 +50,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 4.0.1
+    rev: 5.0.4
     hooks:
       - id: flake8
         args:
