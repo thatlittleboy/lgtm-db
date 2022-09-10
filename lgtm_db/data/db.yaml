@@ -136,3 +136,11 @@ gifs:
     url: https://media.giphy.com/media/37YkA62o0EacPqD0xm/giphy.gif
     width: 480
     height: 453
+  - name: clockwork-thumbsup
+    url: https://media.giphy.com/media/8xSnw21AM7OQo/giphy-downsized.gif
+    width: 400
+    height: 345
+  - name: fake-paws-dog-clapping
+    url: https://media.giphy.com/media/cnEXsCkEEhPWKoIgEL/giphy.gif
+    width: 480
+    height: 270
