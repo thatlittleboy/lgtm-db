@@ -2,6 +2,7 @@
 
 Needs cleaning up... And move to using async, etc.
 """
+import argparse
 from io import BytesIO
 from pathlib import Path
 
@@ -37,6 +38,21 @@ def main() -> int:
     with new_db_path.open(mode="w") as f:
         yaml.safe_dump(data, f, sort_keys=False)
 
+    return 0
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--query",
+        help="query the image size from a single url",
+        type=str,
+        default=None,
+    )
+    args = parser.parse_args()
+
+    if args.query:
+        print(get_size(args.query))
+        raise SystemExit(0)
+
     raise SystemExit(main())
