@@ -144,3 +144,7 @@ gifs:
     url: https://media.giphy.com/media/cnEXsCkEEhPWKoIgEL/giphy.gif
     width: 480
     height: 270
+  - name: tom-hanks-laptop-lgtm
+    url: https://media.giphy.com/media/W7K4C2BnqqafLhHwpX/giphy.gif
+    width: 300
+    height: 171
