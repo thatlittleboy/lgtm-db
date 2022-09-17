@@ -3,10 +3,12 @@
 Needs cleaning up... And move to using async, etc.
 """
 import argparse
+import asyncio
 from io import BytesIO
 from pathlib import Path
+from typing import Any
 
-import requests
+import aiohttp
 import yaml
 from PIL import Image
 
@@ -16,23 +18,46 @@ except ImportError:
     from yaml import SafeLoader as Loader
 
 
-def get_size(url):
-    image_raw = requests.get(url)
-    image = Image.open(BytesIO(image_raw.content))
+async def _gather_with_concurrency(tasks, n):
+    """Helper function for limiting async concurrency."""
+    semaphore = asyncio.Semaphore(n)
+
+    async def sem_wrapper(task):
+        async with semaphore:
+            return await task
+
+    return await asyncio.gather(*(sem_wrapper(task) for task in tasks))
+
+
+async def get_size_from_url(url) -> tuple[int, int]:
+    print(f"Getting image size from {url!r}")
+    timeout = aiohttp.ClientTimeout(total=20)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        image_raw = await session.get(url, raise_for_status=True)
+        bytez = await image_raw.read()
+    image = Image.open(BytesIO(bytez))
     return image.size
 
 
-def main() -> int:
+async def main() -> int:
     project_path = Path(__file__).parent.parent
 
+    # load data contents
     db_path = project_path / "lgtm_db/data/db.yaml"
     with db_path.open(mode="r") as f:
         contents = yaml.load(f, Loader=Loader)
 
-    data = contents["images"] + contents["gifs"]
-    for p in data:
-        print(p["name"])
-        p["width"], p["height"] = get_size(p["url"])
+    data: list[dict[str, Any]] = contents["images"] + contents["gifs"]
+
+    # obtain image width/height from url
+    sizes: list[tuple[int, int]] = await _gather_with_concurrency(
+        [get_size_from_url(p["url"]) for p in data],
+        n=10,
+    )
+
+    # replace the image size data back into the db
+    for p, size in zip(data, sizes):
+        p["width"], p["height"] = size
 
     new_db_path = db_path.parent / "new_db.yaml"
     with new_db_path.open(mode="w") as f:
@@ -52,7 +77,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.query:
-        print(get_size(args.query))
+        task = get_size_from_url(args.query)
+        print(asyncio.run(task))
         raise SystemExit(0)
 
-    raise SystemExit(main())
+    raise SystemExit(asyncio.run(main()))
