@@ -3,7 +3,7 @@ name: Custom badges
 on:
   push:
     branches:
-      - 'badges'
+      - 'main'
 
 jobs:
   badge-job:
