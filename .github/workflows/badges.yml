@@ -1,0 +1,20 @@
+name: Custom badges
+
+on: [push]
+
+jobs:
+  badge-job:
+    name: Generate some custom badges for README
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: db_count
+        run: echo "##[set-output name=data;]$(grep -e 'name:' lgtm_db/data/db.yaml | wc -l)"
+      - name: DB Count badge
+        uses: RubbaBoy/BYOB@v1.3.0
+        with:
+          NAME: count
+          LABEL: 'GIF count'
+          STATUS: ${{ steps.db_count.outputs.data }}
+          COLOR: purple
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
