@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         lgtm-gifs-github
 // @namespace    https://www.github.com/thatlittleboy
-// @version      1.0
+// @version      2.0
 // @author       thatlittleboy
-// @include      https://github.com/*/*/pull/*
+// @include      https://github.com/*
 // @require      https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js
 // @grant        GM.xmlHttpRequest
 // ==/UserScript==
@@ -29,7 +29,7 @@
         },
     });
 
-    document.body.addEventListener("click", function (e) {
+    document.documentElement.addEventListener("click", function (e) {
         let msg;
         console.log(
             "click event registered. name:",
