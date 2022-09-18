@@ -5,6 +5,8 @@ from typing import Optional
 
 import yaml
 
+from .__version__ import __version__  # noqa: F401
+
 try:
     from yaml.cyaml import CSafeLoader as Loader
 except ImportError:

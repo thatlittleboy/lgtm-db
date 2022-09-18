@@ -53,7 +53,7 @@ Pip install in editable mode (in a virtualenv).
 
 ### 📌 Release
 1. Create a new branch called `release-v1.2.0`, for example, from the `main` branch.
-1. Bump the version number in `setup.cfg` and commit with a commit message `release: v1.2.0`. Push and merge this branch into `main`.
+1. Bump the version number in [`__version__.py`](lgtm_db/__version__.py) and commit with a commit message `release: v1.2.0`. Push and merge this branch into `main`.
 1. And tag the ref, `git tag v1.2.0`, for example, on `main`. Push the tags to remote, if needed.
 
 ## ⚡️ Inspiration
