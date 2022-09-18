@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://github.com/thatlittleboy/lgtm-db/actions"><img alt="Actions Status" src="https://github.com/thatlittleboy/lgtm-db/actions/workflows/tests.yml/badge.svg"></a>
-<a href="https://thatlittleboy.github.io/lgtm-db/"><img alt="GIF count" src="https://byob.yarr.is/thatlittleboy/lgtm-db/db_count/badges"></a>
+<a href="https://thatlittleboy.github.io/lgtm-db/"><img alt="GIF count" src="https://byob.yarr.is/thatlittleboy/lgtm-db/db_count"></a>
 </p>
 
 A repository containing LGTM-related gifs and images for PR approvals and merges.
