@@ -1,17 +1,10 @@
 import argparse
 import enum
-import random
 import sys
 from typing import Optional
 
-import yaml
-
 from .__version__ import __version__
-
-try:
-    from yaml.cyaml import CSafeLoader as Loader
-except ImportError:
-    from yaml import SafeLoader as Loader
+from .loader import EmptyGifLoaderError, GifLoader
 
 if sys.version_info >= (3, 9):
     from importlib.resources import files
@@ -81,11 +74,15 @@ def main() -> int:
     _ = parser.parse_args()
 
     resource_path = files("lgtm_db") / "data/db.yaml"
-    with resource_path.open(mode="r") as f:
-        contents = yaml.load(f, Loader=Loader)
+    gloader = GifLoader.from_db(resource_path)
 
-    all_lgtm = contents["images"] + contents["gifs"]
-    chosen = random.choice(all_lgtm)
+    # TODO: implement the filter_by_name functionality
+
+    try:
+        chosen = gloader.pick_random()
+    except EmptyGifLoaderError:
+        print("[ERR] No valid gifs were found!", file=sys.stderr)
+        return 1
 
     output = gif_to_string_output(
         chosen,
