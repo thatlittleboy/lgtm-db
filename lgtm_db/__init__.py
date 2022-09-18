@@ -1,3 +1,4 @@
+import argparse
 import enum
 import random
 import sys
@@ -5,7 +6,7 @@ from typing import Optional
 
 import yaml
 
-from .__version__ import __version__  # noqa: F401
+from .__version__ import __version__
 
 try:
     from yaml.cyaml import CSafeLoader as Loader
@@ -70,6 +71,15 @@ def gif_to_string_output(
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-V",
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
+    )
+    _ = parser.parse_args()
+
     resource_path = files("lgtm_db") / "data/db.yaml"
     with resource_path.open(mode="r") as f:
         contents = yaml.load(f, Loader=Loader)
