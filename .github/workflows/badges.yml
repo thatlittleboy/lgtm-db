@@ -8,8 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - id: db_count
         run: echo "##[set-output name=data;]$(grep -e 'name:' lgtm_db/data/db.yaml | wc -l)"
+
       - name: DB Count badge
         uses: RubbaBoy/BYOB@v1.3.0
         with:
