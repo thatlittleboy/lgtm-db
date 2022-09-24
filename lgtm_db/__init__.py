@@ -40,6 +40,7 @@ def gif_to_string_output(
 
     Returns:
         A string representation of the image, in the specified format.
+
     """
     name = gif["name"]
     url = gif["url"]
@@ -64,24 +65,55 @@ def gif_to_string_output(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Get a randomly-generated LGTM gif or image.",
+    )
     parser.add_argument(
         "-V",
         "--version",
         action="version",
         version=f"%(prog)s {__version__}",
     )
-    _ = parser.parse_args()
+    parser.add_argument(
+        "-I",
+        "--include",
+        action="append",
+        help=(
+            "Apply an inclusive filter on the list of gifs before random choice (matches are included). "
+            "The filter condition is treated as a regex query if it starts with ^ and ends with $. "
+            "For non-regex conditions, a simple substring check is used. Multiple conditions are supported. "
+            "Exclusions are given higher priority over inclusions."
+        ),
+        metavar="PATTERN",
+    )
+    parser.add_argument(
+        "-E",
+        "--exclude",
+        action="append",
+        help=(
+            "Apply an exclusive filter on the list of gifs before random choice (matches are excluded). "
+            "The filter condition is treated as a regex query if it starts with ^ and ends with $. "
+            "For non-regex conditions, a simple substring check is used. Multiple conditions are supported. "
+            "Exclusions are given higher priority over inclusions."
+        ),
+        metavar="PATTERN",
+    )
+    args = parser.parse_args()
 
     resource_path = files("lgtm_db") / "data/db.yaml"
-    gloader = GifLoader.from_db(resource_path)
+    gloader = GifLoader.from_yaml(resource_path)
 
-    # TODO: implement the filter_by_name functionality
+    if args.include:
+        for ft in args.include:
+            gloader.filter_by_name(ft, complement=False)
+    if args.exclude:
+        for ft in args.exclude:
+            gloader.filter_by_name(ft, complement=True)
 
     try:
         chosen = gloader.pick_random()
-    except EmptyGifLoaderError:
-        print("[ERR] No valid gifs were found!", file=sys.stderr)
+    except EmptyGifLoaderError as e:
+        print(str(e), file=sys.stderr)
         return 1
 
     output = gif_to_string_output(

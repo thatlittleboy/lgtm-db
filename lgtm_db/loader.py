@@ -8,6 +8,8 @@ try:
 except ImportError:
     from yaml import SafeLoader as YamlLoader
 
+from lgtm_db.matcher import Matcher
+
 
 class EmptyGifLoaderError(Exception):
     pass
@@ -17,19 +19,27 @@ class GifLoader:
     """A generic container for holding Gifs."""
 
     def __init__(self, gifs):
-        """TBD: type hinting for gifs
-
-        gifs should be a list of Gif dictionaries, consisting of name, url, ...
-        """
         self.gifs = gifs
-        self._mask = [True for _ in self.gifs]
+        self._mask = [None for _ in self.gifs]
 
-    def filter_by_name(self, name: str):
-        self._mask = [m and name in g["name"] for m, g in zip(self._mask, self.gifs)]
+    def filter_by_name(self, name: str, complement: bool = False):
+        """Applies a mask on the candidate gifs based on its name."""
+        matcher = Matcher(name)
+        if complement:
+            # logic for exclusions (higher priority than inclusions):
+            # m == False: should always return False
+            # m == None/True: should return `not match`
+            self._mask = [not (m is False or matcher.match(g["name"])) for m, g in zip(self._mask, self.gifs)]
+        else:
+            # logic for inclusions:
+            # m == True: should always return True
+            # m == None/False: should return `match`
+            self._mask = [m or matcher.match(g["name"]) for m, g in zip(self._mask, self.gifs)]
         return self
 
     def pick_random(self):
-        if not all(self._mask):
+        """Returns a randomly chosen gif after applying the specified filters."""
+        if any(m is False for m in self._mask):
             # worst case scenario: this duplicates the entire list, doubling memory usage.
             # thus, we only enter this branch if some filters have been successfully applied.
             candidates = list(it.compress(self.gifs, self._mask))
@@ -37,12 +47,12 @@ class GifLoader:
             candidates = self.gifs
 
         if not candidates:
-            raise EmptyGifLoaderError
-
+            raise EmptyGifLoaderError("[ERR] No valid gifs were found!")
+        # print([c["name"] for c in candidates])
         return random.choice(candidates)
 
     @classmethod
-    def from_db(cls, filepath):
+    def from_yaml(cls, filepath):
         with filepath.open(mode="r") as f:
             contents = yaml.load(f, Loader=YamlLoader)
 
