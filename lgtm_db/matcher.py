@@ -2,6 +2,8 @@ import re
 
 
 class Matcher:
+    """A helper class for encapsulating matching logic for filtering."""
+
     def __init__(self, condition: str):
         self.condition = condition
         self.regexed: bool = self.is_regex_pattern(condition)
