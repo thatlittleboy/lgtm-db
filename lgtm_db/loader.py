@@ -39,17 +39,22 @@ class GifLoader:
 
     def pick_random(self):
         """Returns a randomly chosen gif after applying the specified filters."""
+        candidates = self._get_candidates()
+        # print([c["name"] for c in candidates])
+
+        if not candidates:
+            raise EmptyGifLoaderError("[ERR] No valid gifs were found!")
+        return random.choice(candidates)
+
+    def _get_candidates(self):
+        """Returns the list of candidate gifs after applying the specified filters."""
         if any(m is False for m in self._mask):
             # worst case scenario: this duplicates the entire list, doubling memory usage.
             # thus, we only enter this branch if some filters have been successfully applied.
             candidates = list(it.compress(self.gifs, self._mask))
         else:
             candidates = self.gifs
-
-        if not candidates:
-            raise EmptyGifLoaderError("[ERR] No valid gifs were found!")
-        # print([c["name"] for c in candidates])
-        return random.choice(candidates)
+        return candidates
 
     @classmethod
     def from_yaml(cls, filepath):
