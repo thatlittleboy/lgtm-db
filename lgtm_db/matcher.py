@@ -5,6 +5,9 @@ class Matcher:
     """A helper class for encapsulating matching logic for filtering."""
 
     def __init__(self, condition: str):
+        if not isinstance(condition, str):
+            raise TypeError(f"condition: expected a str, got {type(condition)}")
+
         self.condition = condition
         self.regexed: bool = self.is_regex_pattern(condition)
 
