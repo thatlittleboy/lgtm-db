@@ -1,3 +1,5 @@
+import pytest
+
 from lgtm_db.matcher import Matcher
 
 
@@ -10,6 +12,12 @@ def test_matcher_type():
     assert not Matcher.is_regex_pattern("")
     assert not Matcher.is_regex_pattern(r"lgtm_gif")
     assert not Matcher.is_regex_pattern(r"$hahah$")
+
+
+def test_condition_is_wrong_type():
+    with pytest.raises(TypeError, match="expected a str, got"):
+        _ = Matcher(None)
+        _ = Matcher(123)
 
 
 def test_match_for_regex():
