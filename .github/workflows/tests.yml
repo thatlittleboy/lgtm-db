@@ -30,7 +30,7 @@ jobs:
           diff docs/index.html docs/index-old.html
 
   run-pytest:
-    name: Runs pytest Tests
+    name: Runs pytest tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
