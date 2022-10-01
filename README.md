@@ -35,7 +35,29 @@ $ lgtm-db
 ```
 You can then pipe the result into `pbcopy` etc. to copy the result into your clipboard.
 
-**NOTE**: API is very much subject to change.
+**WARNING**: API is very much subject to change.
+
+```
+usage: lgtm-db [-h] [-V] [-I PATTERN] [-E PATTERN]
+
+Get a randomly-generated LGTM gif or image.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+  -I PATTERN, --include PATTERN
+                        Apply an inclusive filter on the list of gifs before random choice (matches
+                        are included). The filter condition is treated as a regex query if it starts
+                        with ^ and ends with $. For non-regex conditions, a simple substring check is
+                        used. Multiple conditions are supported. Exclusions are given higher priority
+                        over inclusions.
+  -E PATTERN, --exclude PATTERN
+                        Apply an exclusive filter on the list of gifs before random choice (matches
+                        are excluded). The filter condition is treated as a regex query if it starts
+                        with ^ and ends with $. For non-regex conditions, a simple substring check is
+                        used. Multiple conditions are supported. Exclusions are given higher priority
+                        over inclusions.
+```
 
 ### Browser user script
 You need to install Greasemonkey / Tampermonkey, and invoke a user script to insert a random gif into the message box (upon PR approval, or any other Javascript event you like).
