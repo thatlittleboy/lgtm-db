@@ -148,3 +148,11 @@ gifs:
     url: https://media.giphy.com/media/W7K4C2BnqqafLhHwpX/giphy.gif
     width: 300
     height: 171
+  - name: fluffy-dog-air-swimming
+    url: https://media.giphy.com/media/g8IptQ1lfPL2GN0G8G/giphy.gif
+    width: 287
+    height: 294
+  - name: dog-teaches-baby-crawling
+    url: https://media.giphy.com/media/pf09ZGSaOF7j7HsuSR/giphy.gif
+    width: 400
+    height: 214
