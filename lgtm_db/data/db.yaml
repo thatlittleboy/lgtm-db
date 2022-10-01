@@ -156,3 +156,7 @@ gifs:
     url: https://media.giphy.com/media/pf09ZGSaOF7j7HsuSR/giphy.gif
     width: 400
     height: 214
+  - name: trump-debate-self-high-five
+    url: https://media.giphy.com/media/r60QQE4Y4RvwXqUjpC/giphy.gif
+    width: 480
+    height: 269
