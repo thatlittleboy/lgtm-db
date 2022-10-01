@@ -20,7 +20,7 @@ View all the available images and gifs in the [gallery page](https://thatlittleb
 ## ⬇️ Installation
 This project is just for personal use, so it is not published on PyPI.
 
-Using [pipx](https://pypa.github.io/pipx/) to install directly from github:
+Using [pipx](https://pypa.github.io/pipx/) (Python 3.7+ only) to install directly from github:
 ```shell
 $ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
