@@ -29,79 +29,77 @@ def test_error_when_picking_empty_initial():
         gloader.pick_random()
 
 
-def test_error_when_picking_empty_after_masking(sample_gifs):
-    """Should raise error if gifs is empty at time of picking."""
-    gloader = GifLoader(sample_gifs)
-    gloader.filter_by_name(name="aghast")
+class TestLoaderFiltering:
+    def test_error_when_picking_empty_after_masking(self, sample_gifs):
+        """Should raise error if gifs is empty at time of picking."""
+        gloader = GifLoader(sample_gifs).filter_by_name(name="aghast")
 
-    with pytest.raises(EmptyGifLoaderError, match="No valid gifs"):
-        gloader.pick_random()
+        with pytest.raises(EmptyGifLoaderError, match="No valid gifs"):
+            gloader.pick_random()
 
+    def test_single_filter_by_name_inclusive(self, sample_gifs):
+        candidates = GifLoader(sample_gifs).filter_by_name(name="doge-thum")._get_candidates()
 
-def test_single_filter_by_name_inclusive(sample_gifs):
-    candidates = GifLoader(sample_gifs).filter_by_name(name="doge-thum")._get_candidates()
+        assert len(candidates) == 1
+        assert candidates[0]["name"] == "doge-thumbsup"
 
-    assert len(candidates) == 1
-    assert candidates[0]["name"] == "doge-thumbsup"
+    def test_single_filter_by_name_exclusive(self, sample_gifs):
+        candidates = GifLoader(sample_gifs).filter_by_name(name="doge", complement=True)._get_candidates()
 
+        assert len(candidates) == 1
+        assert candidates[0]["name"] == "cat-thumbsup"
 
-def test_single_filter_by_name_exclusive(sample_gifs):
-    candidates = GifLoader(sample_gifs).filter_by_name(name="doge", complement=True)._get_candidates()
+    def test_multiple_filter_by_name_inc(self, sample_gifs):
+        # inclusive-only
+        candidates = (
+            GifLoader(sample_gifs)
+            .filter_by_name(name="doge-thum")
+            .filter_by_name(name="cat")
+            ._get_candidates()
+        )
 
-    assert len(candidates) == 1
-    assert candidates[0]["name"] == "cat-thumbsup"
+        assert len(candidates) == 2
+        expected_names = {
+            "doge-thumbsup",
+            "cat-thumbsup",
+        }
+        actual_names = {c["name"] for c in candidates}
+        assert not expected_names ^ actual_names
 
+    def test_multiple_filter_by_name_exc(self, sample_gifs):
+        # exclusive-only
+        candidates = (
+            GifLoader(sample_gifs)
+            .filter_by_name(name="doge-thum", complement=True)
+            .filter_by_name(name="cat", complement=True)
+            ._get_candidates()
+        )
 
-def test_multiple_filter_by_name_inc(sample_gifs):
-    # inclusive-only
-    candidates = (
-        GifLoader(sample_gifs).filter_by_name(name="doge-thum").filter_by_name(name="cat")._get_candidates()
-    )
+        assert len(candidates) == 1
+        expected_names = {
+            "doge-crying",
+        }
+        actual_names = {c["name"] for c in candidates}
+        assert not expected_names ^ actual_names
 
-    assert len(candidates) == 2
-    expected_names = {
-        "doge-thumbsup",
-        "cat-thumbsup",
-    }
-    actual_names = {c["name"] for c in candidates}
-    assert not expected_names ^ actual_names
+    def test_multiple_filter_by_name_mixed1(self, sample_gifs):
+        """When applying multiple filters, order matters!
 
+        Exclusions are given higher priority than inclusions (by design), which means we run the inclusion
+        masking first, before running the exclusion masking.
 
-def test_multiple_filter_by_name_exc(sample_gifs):
-    # exclusive-only
-    candidates = (
-        GifLoader(sample_gifs)
-        .filter_by_name(name="doge-thum", complement=True)
-        .filter_by_name(name="cat", complement=True)
-        ._get_candidates()
-    )
+        """
+        # inclusive, then exclusive
+        candidates = (
+            GifLoader(sample_gifs)
+            .filter_by_name(name="thumbsup", complement=False)
+            .filter_by_name(name="doge", complement=True)
+            ._get_candidates()
+        )
 
-    assert len(candidates) == 1
-    expected_names = {
-        "doge-crying",
-    }
-    actual_names = {c["name"] for c in candidates}
-    assert not expected_names ^ actual_names
-
-
-def test_multiple_filter_by_name_mixed1(sample_gifs):
-    """When applying multiple filters, order matters!
-
-    Exclusions are given higher priority than inclusions, which means we run the inclusion masking first,
-    before running the exclusion masking.
-
-    """
-    # inclusive, then exclusive
-    candidates = (
-        GifLoader(sample_gifs)
-        .filter_by_name(name="thumbsup", complement=False)
-        .filter_by_name(name="doge", complement=True)
-        ._get_candidates()
-    )
-
-    assert len(candidates) == 1
-    expected_names = {
-        "cat-thumbsup",
-    }
-    actual_names = {c["name"] for c in candidates}
-    assert not expected_names ^ actual_names
+        assert len(candidates) == 1
+        expected_names = {
+            "cat-thumbsup",
+        }
+        actual_names = {c["name"] for c in candidates}
+        assert not expected_names ^ actual_names
