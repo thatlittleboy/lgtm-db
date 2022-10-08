@@ -3,14 +3,10 @@ images:
     url: https://i.imgur.com/PKiCvz2.png
     width: 700
     height: 700
-  - name: doge-much-code-very-lgtm
-    url: https://memegenerator.net/img/instances/64675441.jpg
-    width: 1280
-    height: 960
-  - name: success-kid-shipit
-    url: https://memegenerator.net/img/instances/68718219.jpg
+  - name: smiling-cat-face-lgtm
+    url: https://i.imgur.com/DUiOvL7.png
     width: 400
-    height: 400
+    height: 366
 gifs:
   - name: seal-of-approval-seal
     url: https://media.giphy.com/media/13zeE9qQNC5IKk/giphy.gif
