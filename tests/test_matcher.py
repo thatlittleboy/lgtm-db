@@ -18,6 +18,8 @@ def test_condition_is_wrong_type():
     with pytest.raises(TypeError, match="expected a str, got"):
         _ = Matcher(None)
         _ = Matcher(123)
+        _ = Matcher(["a", "b", "c"])
+        _ = Matcher({"xyz"})
 
 
 def test_match_for_regex():
