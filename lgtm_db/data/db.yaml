@@ -156,3 +156,7 @@ gifs:
     url: https://media.giphy.com/media/r60QQE4Y4RvwXqUjpC/giphy.gif
     width: 480
     height: 269
+  - name: recursive-thumbsup-in-video-recording
+    url: https://media.giphy.com/media/kuDlY5VOWVTBkEpWoC/giphy.gif
+    width: 718
+    height: 404
