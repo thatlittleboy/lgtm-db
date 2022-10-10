@@ -33,7 +33,8 @@ def gif_to_string_output(
             Currently only HTML and Markdown are supported.
         desired_width:
             Desired width of the rendered image. Only supported in HTML mode.
-            Defaults to 500.
+            If not specified (i.e., None), then the img's original width is used.
+            The height will be automatically calculated based on the desired width.
         lazy:
             Whether to use lazy or eager loading. Only supported in HTML mode.
             Defaults to False.
@@ -46,9 +47,14 @@ def gif_to_string_output(
     url = gif["url"]
 
     if output_format == StringOutputFormat.HTML:
-        aspect_ratio = gif["width"] / gif["height"]
-        width = desired_width or 500  # TODO: add logic for gif["width"]
-        height = int(width / aspect_ratio)
+        # NOTE: It is recommended to always set the width and height attributes on the img
+        # so that the browser knows how much space to allocate the image.
+        width = gif["width"]
+        height = gif["height"]
+        if desired_width:
+            aspect_ratio = width / height
+            width = desired_width
+            height = int(width / aspect_ratio)
 
         t_alt = f' alt="{name}"'
         t_src = f' src="{url}"'
@@ -98,6 +104,15 @@ def main() -> int:
         ),
         metavar="PATTERN",
     )
+    parser.add_argument(
+        "-wd",
+        "--width",
+        help=(
+            "Specify the width of the output gif. A non-positive width will result in an error. "
+            "Only applicable for HTML."
+        ),
+        type=int,
+    )
     args = parser.parse_args()
 
     resource_path = files("lgtm_db") / "data/db.yaml"
@@ -116,10 +131,16 @@ def main() -> int:
         print(str(e), file=sys.stderr)
         return 1
 
+    # config output gif
+    if args.width is not None and args.width <= 0:
+        print("[ERR] Specified width must be non-negative.", file=sys.stderr)
+        return 1
+
     output = gif_to_string_output(
         chosen,
         output_format=StringOutputFormat.HTML,
-        desired_width=500,
+        desired_width=args.width,
+        lazy=False,
     )
     print(output)
     return 0
