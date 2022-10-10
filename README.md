@@ -38,7 +38,7 @@ You can then pipe the result into `pbcopy` etc. to copy the result into your cli
 **WARNING**: API is very much subject to change.
 
 ```
-usage: lgtm-db [-h] [-V] [-I PATTERN] [-E PATTERN]
+usage: lgtm-db [-h] [-V] [-I PATTERN] [-E PATTERN] [-wd WIDTH]
 
 Get a randomly-generated LGTM gif or image.
 
@@ -57,6 +57,9 @@ optional arguments:
                         with ^ and ends with $. For non-regex conditions, a simple substring check is
                         used. Multiple conditions are supported. Exclusions are given higher priority
                         over inclusions.
+  -wd WIDTH, --width WIDTH
+                        Specify the width of the output gif. A non-positive width will result in an
+                        error. Only applicable for HTML.
 ```
 
 ### Browser user script
