@@ -80,9 +80,14 @@ Pip install in editable mode (in a virtualenv).
 Some personal notes on creating/editing gifs are in the [Github wiki](https://github.com/thatlittleboy/lgtm-db/wiki).
 
 ### 📌 Release
-1. Create a new branch called `release-v1.2.0`, for example, from the `main` branch.
-1. Bump the version number in [`__version__.py`](lgtm_db/__version__.py) and commit with a commit message `release: v1.2.0`. Push and merge this branch into `main`.
-1. And tag the ref, `git tag v1.2.0`, for example, on `main`. Push the tags to remote, if needed.
+1. Create a new branch called `release-v1.5.0`, for example, from the `main` branch.
+1. Bump the version number in [`__version__.py`](lgtm_db/__version__.py) and commit with a commit message `release: v1.5.0`. And push up to remote.
+1. Create a PR, attach the following output
+   ```shell
+   git log --oneline --no-decorate HEAD ^v1.4.0
+   ```
+   to the PR description. Merge this branch into `main`.
+1. Then tag the ref, `git tag v1.5.0`, for example, on the `main` branch. Push the tags to remote.
 
 ## ⚡️ Inspiration
 Inspiration from the following repositories:
