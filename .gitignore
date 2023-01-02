@@ -45,6 +45,9 @@ eggs/
 *.egg-info/
 wheels/
 
+# Linters / Formatters
+.ruff_cache/
+
 # Unit test / Coverage reports
 .coverage
 .coverage.*
