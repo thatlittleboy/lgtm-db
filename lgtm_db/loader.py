@@ -29,15 +29,12 @@ class GifLoader:
             # logic for exclusions (higher priority than inclusions):
             # m == False: should always return False
             # m == None/True: should return `not match`
-            self._mask = [
-                not (m is False or matcher.match(g["name"]))
-                for m, g in zip(self._mask, self.gifs, strict=True)
-            ]
+            self._mask = [not (m is False or matcher.match(g["name"])) for m, g in zip(self._mask, self.gifs)]
         else:
             # logic for inclusions:
             # m == True: should always return True
             # m == None/False: should return `match`
-            self._mask = [m or matcher.match(g["name"]) for m, g in zip(self._mask, self.gifs, strict=True)]
+            self._mask = [m or matcher.match(g["name"]) for m, g in zip(self._mask, self.gifs)]
         return self
 
     def pick_random(self):

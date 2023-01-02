@@ -56,7 +56,7 @@ async def main() -> int:
     )
 
     # replace the image size data back into the db
-    for p, size in zip(data, sizes, strict=True):
+    for p, size in zip(data, sizes):
         p["width"], p["height"] = size
 
     new_db_path = db_path.parent / "new_db.yaml"
