@@ -29,12 +29,15 @@ class GifLoader:
             # logic for exclusions (higher priority than inclusions):
             # m == False: should always return False
             # m == None/True: should return `not match`
-            self._mask = [not (m is False or matcher.match(g["name"])) for m, g in zip(self._mask, self.gifs)]
+            self._mask = [
+                not (m is False or matcher.match(g["name"]))
+                for m, g in zip(self._mask, self.gifs, strict=True)
+            ]
         else:
             # logic for inclusions:
             # m == True: should always return True
             # m == None/False: should return `match`
-            self._mask = [m or matcher.match(g["name"]) for m, g in zip(self._mask, self.gifs)]
+            self._mask = [m or matcher.match(g["name"]) for m, g in zip(self._mask, self.gifs, strict=True)]
         return self
 
     def pick_random(self):
@@ -43,7 +46,8 @@ class GifLoader:
         # print([c["name"] for c in candidates])
 
         if not candidates:
-            raise EmptyGifLoaderError("[ERR] No valid gifs were found!")
+            emsg = "[ERR] No valid gifs were found!"
+            raise EmptyGifLoaderError(emsg)
         return random.choice(candidates)
 
     def _get_candidates(self):
