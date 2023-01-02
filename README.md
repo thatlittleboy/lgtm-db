@@ -18,21 +18,26 @@ View all the available images and gifs in the [gallery page](https://thatlittleb
 ---
 
 ## ⬇️ Installation
+
 This project is just for personal use, so it is not published on PyPI.
 
 Using [pipx](https://pypa.github.io/pipx/) (Python 3.7+ only) to install directly from github:
+
 ```shell
 $ pipx install git+https://github.com/thatlittleboy/lgtm-db
 ```
 
 ## 🚀 Usage
+
 ### CLI
+
 This project exposes a simple CLI API that prints out the HTML img tag of a randomly selected gif/image in the db.
 
 ```shell
 $ lgtm-db
 <img alt="wwe-referee-thumbsup" src="https://c.tenor.com/JS6Vtap-SYEAAAAC/wwe-wrestling.gif" width="500" height="390">
 ```
+
 You can then pipe the result into `pbcopy` etc. to copy the result into your clipboard.
 
 **WARNING**: API is very much subject to change.
@@ -63,6 +68,7 @@ optional arguments:
 ```
 
 ### Browser user script
+
 You need to install Greasemonkey / Tampermonkey, and invoke a user script to insert a random gif into the message box (upon PR approval, or any other Javascript event you like).
 
 Sample user scripts for Gitlab and Github are found in the [scripts folder](scripts/greasemonkey).
@@ -72,7 +78,9 @@ Sample user scripts for Gitlab and Github are found in the [scripts folder](scri
 https://user-images.githubusercontent.com/30731072/178128944-bf360ded-dd8d-4b4f-acb7-56e68f28eceb.mp4
 
 ## 👷 Development
+
 Pip install in editable mode (in a virtualenv).
+
 ```shell
 (venv) $ pip install -e ".[dev]"
 ```
@@ -80,6 +88,7 @@ Pip install in editable mode (in a virtualenv).
 Some personal notes on creating/editing gifs are in the [Github wiki](https://github.com/thatlittleboy/lgtm-db/wiki).
 
 ### 📌 Release
+
 1. Create a new branch called `release-v1.6.0`, for example, from the `main` branch.
 1. Bump the version number in [`__version__.py`](lgtm_db/__version__.py) and commit with a commit message `release: v1.6.0`. And push up to remote.
 1. Create a PR, attach the following output
@@ -90,7 +99,9 @@ Some personal notes on creating/editing gifs are in the [Github wiki](https://gi
 1. Then tag the ref, `git tag v1.6.0`, for example, on the `main` branch. Push the tags to remote.
 
 ## ⚡️ Inspiration
+
 Inspiration from the following repositories:
-* https://github.com/seantomburke/shipit.gifs
-* https://github.com/chriskuehl/shipit
-* https://github.com/maludecks/take-my-approval
+
+- https://github.com/seantomburke/shipit.gifs
+- https://github.com/chriskuehl/shipit
+- https://github.com/maludecks/take-my-approval
