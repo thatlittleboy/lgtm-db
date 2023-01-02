@@ -23,6 +23,28 @@ line_length = 110
 multi_line_output = 3
 use_parentheses = true
 
+[tool.ruff]
+line-length = 110
+select = [
+    # pycodestyle
+    "E",
+    "W",
+    # pyflakes
+    "F",
+    # pydocstyle
+    "D201", "D202", "D205", "D300", "D301", "D403",
+    "D410", "D411", "D413",
+    # flake8-bugbear
+    "B",
+    # flake8-comprehensions
+    "C4",
+    # flake8-errmsg
+    "EM",
+]
+ignore = ["E501", "F403"]
+force-exclude = true
+target-version = "py37"
+
 [build-system]
 requires = [
     "setuptools >= 40.9.0",

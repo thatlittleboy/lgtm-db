@@ -65,9 +65,11 @@ def gif_to_string_output(
         return t
     if output_format == StringOutputFormat.MARKDOWN:
         if desired_width is not None:
-            raise ValueError("desired_width is not supported when output_format is Markdown")
+            emsg = "desired_width is not supported when output_format is Markdown"
+            raise ValueError(emsg)
         return f"![{name}]({url})"
-    raise ValueError(f"output_format: {output_format!r} not supported.")
+    emsg = f"output_format: {output_format!r} not supported."
+    raise ValueError(emsg)
 
 
 def main() -> int:

@@ -43,7 +43,8 @@ class GifLoader:
         # print([c["name"] for c in candidates])
 
         if not candidates:
-            raise EmptyGifLoaderError("[ERR] No valid gifs were found!")
+            emsg = "[ERR] No valid gifs were found!"
+            raise EmptyGifLoaderError(emsg)
         return random.choice(candidates)
 
     def _get_candidates(self):

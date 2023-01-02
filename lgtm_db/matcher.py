@@ -6,7 +6,8 @@ class Matcher:
 
     def __init__(self, condition: str):
         if not isinstance(condition, str):
-            raise TypeError(f"condition: expected a str, got {type(condition)}")
+            emsg = f"condition: expected a str, got {type(condition)}"
+            raise TypeError(emsg)
 
         self.condition = condition
         self.regexed: bool = self.is_regex_pattern(condition)
@@ -21,7 +22,7 @@ class Matcher:
 
         A string is only regarded as a regex pattern if it starts with "^" and ends with "$".
 
-        Example:
+        Examples:
 
             >>> Matcher.is_regex_pattern(r"^good.+$")
             True
@@ -34,7 +35,7 @@ class Matcher:
     def match(self, name: str) -> bool:
         """Checks if the given string matches the given `Matcher` condition.
 
-        Example:
+        Examples:
 
             >>> Matcher("good").match("good-boy")
             True
