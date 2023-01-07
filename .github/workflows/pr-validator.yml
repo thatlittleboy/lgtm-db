@@ -2,7 +2,17 @@ name: Validate pull request
 
 on:
   pull_request:
-    types: [opened, edited, synchronize, reopened]
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
 
 jobs:
   validate:
@@ -11,9 +21,20 @@ jobs:
 
     steps:
       - name: PR title naming rules
-        uses: naveenk1223/action-pr-title@v1.0.0
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          regex: '([a-z])+: \w+'
-          allowed_prefixes: 'fix,feat,refactor,chore,docs,ci,perf,release'
-          prefix_case_sensitive: true
-          min_length: 10
+          types: |
+            fix
+            feat
+            refactor
+            chore
+            docs
+            ci
+            perf
+            release
+          requireScope: false
+          # subject must not begin with an uppercase letter, and must be at least
+          # be 10 characters long
+          subjectPattern: ^(?![A-Z]).{10,}$
