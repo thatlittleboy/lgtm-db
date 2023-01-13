@@ -43,7 +43,7 @@ select = [
 ]
 ignore = ["E501", "F403"]
 force-exclude = true
-target-version = "py37"
+target-version = "py38"
 
 [build-system]
 requires = [
