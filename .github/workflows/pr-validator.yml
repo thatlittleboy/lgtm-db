@@ -36,5 +36,5 @@ jobs:
             release
           requireScope: false
           # subject must not begin with an uppercase letter, and must be at least
-          # be 10 characters long
-          subjectPattern: ^(?![A-Z]).{10,}$
+          # be 6 characters long
+          subjectPattern: ^(?![A-Z]).{6,}$
