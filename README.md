@@ -93,7 +93,7 @@ Some personal notes on creating/editing gifs are in the [Github wiki](https://gi
 1. Bump the version number in [`__version__.py`](lgtm_db/__version__.py) and commit with a commit message `release: v1.6.0`. And push up to remote.
 1. Create a PR, attach the following output
    ```shell
-   git log --oneline --no-decorate --extended-regexp --invert-grep --grep "pre-?commit" HEAD ^v1.5.0
+   git log --oneline --no-decorate --perl-regexp --author='^(?!.*\[bot\]).*$' HEAD ^v1.5.0
    ```
    to the PR description. Merge this branch into `main`.
 1. Then tag the ref, `git tag v1.6.0`, for example, on the `main` branch. Push the tags to remote.
