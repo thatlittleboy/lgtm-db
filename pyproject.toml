@@ -36,6 +36,8 @@ select = [
     "D410", "D411", "D413",
     # flake8-bugbear
     "B",
+    # flake8-commas
+    "COM",
     # flake8-comprehensions
     "C4",
     # flake8-errmsg
