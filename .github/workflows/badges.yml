@@ -3,7 +3,7 @@ name: Custom badges
 on:
   push:
     branches:
-      - 'main'
+      - main
 
 jobs:
   badge-job:
@@ -22,7 +22,7 @@ jobs:
         uses: RubbaBoy/BYOB@v1.3.0
         with:
           NAME: count
-          LABEL: 'GIF count'
+          LABEL: "GIF count"
           STATUS: ${{ steps.db_count.outputs.data }}
           COLOR: purple
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -36,12 +36,17 @@ select = [
     "D410", "D411", "D413",
     # flake8-bugbear
     "B",
-    # flake8-commas
-    "COM",
     # flake8-comprehensions
     "C4",
     # flake8-errmsg
     "EM",
+    # flake8-implicit-str-concat
+    "ISC",
+    # flake8-simplify
+    "SIM101", "SIM109", "SIM117", "SIM118",
+    "SIM2",
+    # flake8-commas
+    "COM",
 ]
 ignore = ["E501", "F403"]
 force-exclude = true
