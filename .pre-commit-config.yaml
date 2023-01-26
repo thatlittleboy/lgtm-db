@@ -12,6 +12,7 @@ repos:
       - id: end-of-file-fixer
       - id: check-docstring-first
       - id: trailing-whitespace
+        args: ["--markdown-linebreak-ext=md"]
       - id: requirements-txt-fixer
       - id: check-yaml
 
@@ -50,7 +51,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.223
+    rev: v0.0.235
     hooks:
       - id: ruff
         types: [python]

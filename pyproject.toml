@@ -42,6 +42,8 @@ select = [
     "C4",
     # flake8-errmsg
     "EM",
+    # flake8-implicit-str-concat
+    "ISC",
 ]
 ignore = ["E501", "F403"]
 force-exclude = true
