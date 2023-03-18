@@ -3,6 +3,8 @@ import enum
 import sys
 from typing import Optional
 
+import markupsafe
+
 from .__version__ import __version__
 from .loader import EmptyGifLoaderError, GifLoader
 
@@ -53,16 +55,20 @@ def gif_to_string_output(
         height = gif["height"]
         if desired_width:
             aspect_ratio = width / height
-            width = desired_width
+            width = int(desired_width)
             height = int(width / aspect_ratio)
 
-        t_alt = f' alt="{name}"'
-        t_src = f' src="{url}"'
-        t_width = f' width="{width}"'
-        t_height = f' height="{height}"'
-        t_loading = ' loading="lazy"' if lazy else ""
-        t = f"<img{t_loading}{t_alt}{t_src}{t_width}{t_height}>"
-        return t
+        t_loading = markupsafe.Markup(' loading="lazy"') if lazy else ""
+        t = '<img{t_loading} alt="{alt}" src="{src}" width="{width}" height="{height}">'
+        return str(
+            markupsafe.Markup(t).format(
+                t_loading=t_loading,
+                alt=name,
+                src=url,
+                width=width,
+                height=height,
+            ),
+        )
     if output_format == StringOutputFormat.MARKDOWN:
         if desired_width is not None:
             emsg = "desired_width is not supported when output_format is Markdown"
