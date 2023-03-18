@@ -47,6 +47,8 @@ select = [
     "SIM2",
     # flake8-commas
     "COM",
+    # flake8-return
+    "RET505", "RET506", "RET507", "RET508",
 ]
 ignore = ["E501", "F403"]
 force-exclude = true

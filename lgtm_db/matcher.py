@@ -49,5 +49,4 @@ class Matcher:
         """
         if self.regexed:
             return bool(self._pattern.match(name))
-        else:
-            return self.condition in name
+        return self.condition in name
