@@ -58,7 +58,7 @@ def gif_to_string_output(
             width = int(desired_width)
             height = int(width / aspect_ratio)
 
-        t_loading = ' loading="lazy"' if lazy else ""
+        t_loading = markupsafe.Markup(' loading="lazy"') if lazy else ""
         t = '<img{t_loading} alt="{alt}" src="{src}" width="{width}" height="{height}">'
         return str(
             markupsafe.Markup(t).format(
