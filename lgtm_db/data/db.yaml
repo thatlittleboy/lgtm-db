@@ -172,3 +172,7 @@ gifs:
     url: https://media.giphy.com/media/pve4hvIwhDyYp9f8XU/giphy.gif
     width: 392
     height: 220
+  - name: baby-biscuit-expression-change
+    url: https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODMzYWExMjZjYTM3YWNmZGIxYjJkMmFiNDhhMGRjNjI5ZDU5YjFmNiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Acx1QcsVJ7XrgD99JR/giphy.gif
+    width: 600
+    height: 450
