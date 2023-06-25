@@ -192,3 +192,7 @@ gifs:
     url: https://media.giphy.com/media/hyKSrbOAMDtX1YeBxn/giphy.gif
     width: 498
     height: 488
+  - name: parrot-heart-thankyou
+    url: https://media.giphy.com/media/xPZw7k1pII527I4atR/giphy.gif
+    width: 480
+    height: 460
