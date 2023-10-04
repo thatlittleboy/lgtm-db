@@ -17,13 +17,13 @@ repos:
       - id: check-yaml
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.8.0
+    rev: v3.14.0
     hooks:
       - id: pyupgrade
         args: [--py38-plus]
 
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v3.0.0
+    rev: v3.1.0
     hooks:
       - id: add-trailing-comma
         args: [--py36-plus]
@@ -34,13 +34,13 @@ repos:
       - id: python-check-blanket-noqa
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.9.1
     hooks:
       - id: black
         args: ["--config", "pyproject.toml"]
 
   - repo: https://github.com/hadialqattan/pycln
-    rev: v2.1.5
+    rev: v2.2.2
     hooks:
       - id: pycln
         args: [--config=pyproject.toml]
@@ -51,7 +51,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.0.276
+    rev: v0.0.292
     hooks:
       - id: ruff
         types: [python]
