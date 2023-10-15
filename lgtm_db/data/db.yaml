@@ -204,3 +204,7 @@ gifs:
     url: https://media.giphy.com/media/JO7BToe2BmwVgWZ8gs/giphy.gif
     width: 270
     height: 480
+  - name: toddler-skiing-high-five
+    url: https://media.giphy.com/media/XA6AE9aVLfHS7lhGTM/giphy.gif
+    width: 480
+    height: 320
