@@ -208,3 +208,11 @@ gifs:
     url: https://media.giphy.com/media/XA6AE9aVLfHS7lhGTM/giphy.gif
     width: 480
     height: 320
+  - name: twin-peaks-thumbs-up-duo
+    url: https://media.giphy.com/media/An95xQZRS1B1S/giphy.gif
+    width: 500
+    height: 350
+  - name: cat-high-five-fall
+    url: https://media.giphy.com/media/wXF43QagSNJ6rw9WvC/giphy.gif
+    width: 266
+    height: 307
