@@ -25,6 +25,9 @@ use_parentheses = true
 
 [tool.ruff]
 line-length = 110
+force-exclude = true
+target-version = "py39"
+[tool.ruff.lint]
 select = [
     # pycodestyle
     "E",
@@ -51,8 +54,6 @@ select = [
     "RET505", "RET506", "RET507", "RET508",
 ]
 ignore = ["E501", "F403"]
-force-exclude = true
-target-version = "py38"
 
 [build-system]
 requires = [
