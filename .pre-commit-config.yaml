@@ -17,7 +17,7 @@ repos:
       - id: check-yaml
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.0
+    rev: v3.19.1
     hooks:
       - id: pyupgrade
         args: [--py39-plus]
@@ -39,7 +39,7 @@ repos:
         args: ["--config", "pyproject.toml"]
 
   - repo: https://github.com/hadialqattan/pycln
-    rev: v2.4.0
+    rev: v2.5.0
     hooks:
       - id: pycln
         args: [--config=pyproject.toml]
@@ -50,7 +50,7 @@ repos:
       - id: isort
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.0
+    rev: v0.8.6
     hooks:
       - id: ruff
         types: [python]
