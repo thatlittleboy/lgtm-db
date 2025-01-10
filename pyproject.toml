@@ -12,9 +12,6 @@ exclude = '''
 line-length = 110
 target-version = ['py39']
 
-[tool.pycln]
-all = true
-
 [tool.isort]
 ensure_newline_before_comments = true
 force_grid_wrap = 0
@@ -27,6 +24,7 @@ use_parentheses = true
 line-length = 110
 force-exclude = true
 target-version = "py39"
+fix = true
 [tool.ruff.lint]
 select = [
     # pycodestyle
@@ -39,6 +37,8 @@ select = [
     "D410", "D411", "D413",
     # flake8-bugbear
     "B",
+    # flake8-commas
+    "COM",
     # flake8-comprehensions
     "C4",
     # flake8-errmsg
@@ -48,12 +48,14 @@ select = [
     # flake8-simplify
     "SIM101", "SIM109", "SIM117", "SIM118",
     "SIM2",
-    # flake8-commas
-    "COM",
     # flake8-return
     "RET505", "RET506", "RET507", "RET508",
 ]
 ignore = ["E501", "F403"]
+extend-fixable = [
+    "F401",
+    "COM",
+]
 
 [build-system]
 requires = [
