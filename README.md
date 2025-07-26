@@ -22,7 +22,13 @@ View all the available images and gifs in the [gallery page](https://thatlittleb
 
 This project is just for personal use, so it is not published on PyPI.
 
-Using [pipx](https://pypa.github.io/pipx/) (Python 3.9+ only) to install directly from github:
+Using [uv](https://docs.astral.sh/uv/) (Python 3.9+ only) to install directly from Github:
+
+```shell
+$ uv tool install git+https://github.com/thatlittleboy/lgtm-db
+```
+
+Or using [pipx](https ://pypa.github.io/pipx/):
 
 ```shell
 $ pipx install git+https://github.com/thatlittleboy/lgtm-db
