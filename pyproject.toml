@@ -50,12 +50,20 @@ select = [
     "SIM2",
     # flake8-return
     "RET505", "RET506", "RET507", "RET508",
+    # ruff-specific
+    "RUF006",  # asyncio-dangling-task
+    "RUF007",  # zip-instead-of-pairwise
+    "RUF012",  # mutable-class-default
+    "RUF024",  # mutable-fromkeys-value
+    "RUF058",  # starmap-zip
 ]
 ignore = ["E501", "F403"]
 extend-fixable = [
     "F401",
     "COM",
 ]
+[tool.ruff.lint.flake8-errmsg]
+max-string-length = 30
 
 [build-system]
 requires = [
